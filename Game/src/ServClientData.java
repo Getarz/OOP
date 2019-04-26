@@ -117,6 +117,7 @@ public class ServClientData extends Thread {
 									System.out.println("image 3");
 								}
 								server.panel.revalidate();
+								server.revalidate();
 							}
 						}
 						if(spt.length==3) {
