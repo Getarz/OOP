@@ -67,6 +67,7 @@ public class IngameFrame extends JFrame{
 	public JLabel labelPlayer1[] = new JLabel[3];
 	public JLabel labelPlayer2[] = new JLabel[3];
 	public int pointCard[] = new int[52];
+	public JLabel labelPlayerName[] = new JLabel[3];
 	/**************CARD***************/
 	public IngameFrame(int indexCha, String namePlayer){
 		ServClientData serv = new ServClientData(this,indexCha,namePlayer);
@@ -111,6 +112,17 @@ public class IngameFrame extends JFrame{
 		labelAllCard = new JLabel(allCard);
 		labelAllCard.setSize(100,100);
 		labelAllCard.setLocation(300,270);
+		/****************************LABEL NAME**********************************/
+		labelPlayerName[0] = new JLabel("Name :");
+		labelPlayerName[1] = new JLabel("Name :");
+		labelPlayerName[2] = new JLabel("Name :");
+		for (int i = 0; i < labelPlayerName.length; i++) {
+			labelPlayerName[i].setSize(200, 60);
+			labelPlayerName[i].setFont(Tahoma16);
+		}
+		labelPlayerName[0].setLocation(45,50);
+		labelPlayerName[1].setLocation(780,50);
+		labelPlayerName[2].setLocation(45,505);
 		/********************************************************************/
 		int numcard = 0;
 		for (int i = 0; i < card.length; i++) {
@@ -196,7 +208,7 @@ public class IngameFrame extends JFrame{
 		labelWait[0].setLocation(230,45);
 		labelWait[1].setLocation(680,45);
 		labelWait[2].setLocation(230,500);
-		labelWait[3].setLocation(680,500);
+		//labelWait[3].setLocation(680,500);
 		/*******************************BOT*******************************/
 		backCard = new ImageIcon(getClass().getResource("Back_card.png"));
 		for (int i = 0; i < labelBot.length; i++) {
@@ -380,6 +392,10 @@ public class IngameFrame extends JFrame{
 		panel.add(letChat);
 		panel.add(labelAllCard);
 		/**********************************/
+		panel.add(labelPlayerName[0]);
+		panel.add(labelPlayerName[1]);
+		panel.add(labelPlayerName[2]);
+		/**********************************/
 		panel.add(labelBot[0]);
 		panel.add(labelBot[1]);
 		panel.add(labelBot[2]);
@@ -402,11 +418,11 @@ public class IngameFrame extends JFrame{
 		panel.add(labelWait[0]);
 		panel.add(labelWait[1]);
 		panel.add(labelWait[2]);
-		panel.add(labelWait[3]);
+		//panel.add(labelWait[3]);
 		panel.add(labeldetailL1);
 		panel.add(labeldetailR1);
 		panel.add(labeldetailL2);
-		panel.add(labeldetailR2);
+		//panel.add(labeldetailR2);
 		panel.add(labelTable);
 		panel.add(labelBG);
 		add(panel);
