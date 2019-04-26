@@ -158,18 +158,18 @@ public class IngameFrame extends JFrame{
 		detailL = new ImageIcon(getClass().getResource("leftData.png"));
 		labeldetailL1 = new JLabel(detailL);
 		labeldetailL1.setSize(250, 80);
-		labeldetailL1.setLocation(33,55);
+		labeldetailL1.setLocation(35,55);
 		labeldetailL2 = new JLabel(detailL);
 		labeldetailL2.setSize(250, 80);
-		labeldetailL2.setLocation(33,510);
+		labeldetailL2.setLocation(35,510);
 		/********************************************************************/
 		detailR = new ImageIcon(getClass().getResource("rightData.png"));
 		labeldetailR1 = new JLabel(detailR);
 		labeldetailR1.setSize(250, 80);
-		labeldetailR1.setLocation(727,55);
+		labeldetailR1.setLocation(725,55);
 		labeldetailR2 = new JLabel(detailR);
 		labeldetailR2.setSize(250, 80);
-		labeldetailR2.setLocation(727,510);
+		labeldetailR2.setLocation(725,510);
 		/********************************************************************/
 		JLabel showCha = new JLabel(Character[indexCha]);
 		showCha.setSize(200, 200);
