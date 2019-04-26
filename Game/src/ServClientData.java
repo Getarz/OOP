@@ -11,9 +11,10 @@ import java.text.SimpleDateFormat;
 
 public class ServClientData extends Thread {
 	IngameFrame server;
-	String name = "";
-	int indexChar=0;
-	String IP="";
+	public String name = "";
+	public int indexChar=0;
+	public String IP="";
+	public int checkPlayer = 0;
 	public ServClientData(IngameFrame server) {
 		this.server =server;
 	}
@@ -111,12 +112,25 @@ public class ServClientData extends Thread {
 								}
 								server.panel.revalidate();
 							}
-
 						}
-						if(spt.length==2) {
-							if(spt[0].equals("set")) {
-								server.chat.append(spt[1] + "\n");
-								server.chat.revalidate();
+						if(spt.length==3) {
+							if(spt[0].equals(server.ip)) {
+						
+								int c = Integer.parseInt(spt[2]);
+								int ran = Integer.parseInt(spt[1]);
+								if(c==0) {
+									server.labelPlayer0[checkPlayer].setIcon(server.card[ran]);
+								}
+								else if(c==1) {
+									server.labelPlayer1[checkPlayer].setIcon(server.card[ran]);
+								}
+								else if(c==2) {
+									server.labelPlayer2[checkPlayer].setIcon(server.card[ran]);
+								}
+//								else if(c==0) {
+//									server.labelPlayer0[0].setIcon(server.card[ran]);
+//								}
+								checkPlayer++;
 							}
 						}
 
