@@ -15,7 +15,7 @@ public class ServClientData extends Thread {
 	public int indexChar = 0;
 	public String IP = "";
 	public int checkPlayer = 0;
-
+	public int checkBot = 0;
 	public ServClientData(IngameFrame server) {
 		this.server = server;
 	}
@@ -136,6 +136,7 @@ public class ServClientData extends Thread {
 							else if(spt[0].equals("bot")) {
 								int ran = Integer.parseInt(spt[1]);
 								server.labelBot[checkPlayer].setIcon(server.card[ran]);
+								checkBot++;
 							}
 							System.out.println("check win");
 
