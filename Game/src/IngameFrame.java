@@ -138,18 +138,25 @@ public class IngameFrame extends JFrame{
 		labelPlayerName[1].setLocation(780,50);
 		labelPlayerName[2].setLocation(45,505);
 		/********************************************************************/
-		for (int i = 0; i < 12; i++) {
+		int numcard=1;
+		for (int i = 0; i < 13; i++) {
 			card[i] = new ImageIcon(getClass().getResource("clubs_"+(i+1)+".png"));
 		}
 		for (int i = 13; i < 26; i++) {
-			card[i] = new ImageIcon(getClass().getResource("spades_"+(i+1)+".png"));
+			card[i] = new ImageIcon(getClass().getResource("spades_"+(numcard)+".png"));
+			numcard++;
 		}
+		numcard=1;
 		for (int i = 26; i < 39; i++) {
-			card[i] = new ImageIcon(getClass().getResource("hearts_"+(i+1)+".png"));
+			card[i] = new ImageIcon(getClass().getResource("hearts_"+(numcard)+".png"));
+			numcard++;
 		}
+		numcard=1;
 		for (int i = 39; i < 52; i++) {
-			card[i] = new ImageIcon(getClass().getResource("spades_"+(i+1)+".png"));
+			card[i] = new ImageIcon(getClass().getResource("diamonds_"+(numcard)+".png"));
+			numcard++;
 		}
+		numcard=1;
 		for (int i = 0; i < labelCard.length; i++) {
 			labelCard[i] = new JLabel(card[i]);
 			labelCard[i].setSize(60, 87);
