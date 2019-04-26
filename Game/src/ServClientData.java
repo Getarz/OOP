@@ -141,8 +141,11 @@ public class ServClientData extends Thread {
 							}
 						}
 						if(spt.length==2) {
+							System.out.println("check win");
+							set();
 							int c = Integer.parseInt(spt[1]);
 							if(spt[0].equals("win")) {
+								System.out.println("Win "+c);
 								if(c==0) {
 									server.labelWinner.setIcon(server.Winner[0]);
 								}
@@ -152,6 +155,8 @@ public class ServClientData extends Thread {
 								else if(c==2) {
 									server.labelWinner.setIcon(server.Winner[2]);
 								}
+								server.panel.revalidate();
+								server.revalidate();
 							}
 						}
 
@@ -165,6 +170,9 @@ public class ServClientData extends Thread {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
+	}
+	public void set() {
+		System.out.println("xxx");
 	}
 
 	
