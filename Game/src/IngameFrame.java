@@ -62,8 +62,12 @@ public class IngameFrame extends JFrame{
 	String spades = "spades_";
 	public JLabel labelCard[] = new JLabel[52];
 	public ImageIcon backCard;
-	public JLabel labelBC[] = new JLabel[12];
-	/************CARD***************/
+	public JLabel labelBot[] = new JLabel[3];
+	public JLabel labelPlayer0[] = new JLabel[3];
+	public JLabel labelPlayer1[] = new JLabel[3];
+	public JLabel labelPlayer2[] = new JLabel[3];
+	public int pointCard[] = new int[52];
+	/**************CARD***************/
 	public IngameFrame(int indexCha, String namePlayer){
 		ServClientData serv = new ServClientData(this,indexCha,namePlayer);
 		serv.start();
@@ -107,7 +111,6 @@ public class IngameFrame extends JFrame{
 		labelAllCard = new JLabel(allCard);
 		labelAllCard.setSize(100,100);
 		labelAllCard.setLocation(300,270);
-		int xxxxx = 0;
 		/********************************************************************/
 		int numcard = 0;
 		for (int i = 0; i < card.length; i++) {
@@ -130,6 +133,43 @@ public class IngameFrame extends JFrame{
 		for (int i = 0; i < labelCard.length; i++) {
 			labelCard[i] = new JLabel(card[i]);
 			labelCard[i].setSize(60, 87);
+		}
+		/********************************************************************/
+		int numcard2 = 1;
+		for (int i = 0; i < pointCard.length; i++) {
+			if(i>=0&&i<=9) {
+				pointCard[i]=numcard2;
+				numcard2++;
+			}
+			else if(i>=10&&i<=12) {
+				pointCard[i]=10;
+				numcard2 = 1;
+			}
+			else if(i>=13&&i<=22) {
+				pointCard[i]=numcard2;
+				numcard2++;
+			}
+			else if(i>=23&&i<=25) {
+				pointCard[i]=10;
+				numcard2 = 1;
+			}
+			else if(i>=26&&i<=35) {
+				pointCard[i]=numcard2;
+				numcard2++;
+			}
+			else if(i>=36&&i<=38) {
+				pointCard[i]=10;
+				numcard2 = 1;
+			}
+			else if(i>=39&&i<=48) {
+				pointCard[i]=numcard2;
+				numcard2++;
+			}
+			else if(i>=49&&i<=51) {
+				pointCard[i]=10;
+				numcard2 = 1;
+			}
+			System.out.println(pointCard[i]);
 		}
 		/********************************************************************/
 		Character[0] = new ImageIcon(getClass().getResource("tu100.png"));
@@ -157,15 +197,42 @@ public class IngameFrame extends JFrame{
 		labelWait[1].setLocation(680,45);
 		labelWait[2].setLocation(230,500);
 		labelWait[3].setLocation(680,500);
-		/********************************************************************/
+		/*******************************BOT*******************************/
 		backCard = new ImageIcon(getClass().getResource("Back_card.png"));
-		for (int i = 0; i < labelBC.length; i++) {
-			labelBC[i] = new JLabel(backCard);
-			labelBC[i].setSize(60, 87);
+		for (int i = 0; i < labelBot.length; i++) {
+			labelBot[i] = new JLabel(backCard);
+			labelBot[i].setSize(60, 87);
 		}
-		labelBC[0].setLocation(400, 275);
-		labelBC[1].setLocation(470, 275);
-		labelBC[2].setLocation(540, 275);
+		labelBot[0].setLocation(400, 275);
+		labelBot[1].setLocation(470, 275);
+		labelBot[2].setLocation(540, 275);
+		/*******************************player 0 *******************************/
+		backCard = new ImageIcon(getClass().getResource("Back_card.png"));
+		for (int i = 0; i < labelPlayer0.length; i++) {
+			labelPlayer0[i] = new JLabel(backCard);
+			labelPlayer0[i].setSize(60, 87);
+		}
+		labelPlayer0[0].setLocation(240, 160);
+		labelPlayer0[1].setLocation(310, 160);
+		labelPlayer0[2].setLocation(380, 160);
+		/*******************************player 1 *******************************/
+		backCard = new ImageIcon(getClass().getResource("Back_card.png"));
+		for (int i = 0; i < labelPlayer1.length; i++) {
+			labelPlayer1[i] = new JLabel(backCard);
+			labelPlayer1[i].setSize(60, 87);
+		}
+		labelPlayer1[0].setLocation(560, 160);
+		labelPlayer1[1].setLocation(630, 160);
+		labelPlayer1[2].setLocation(700, 160);
+		/*******************************player 2 *******************************/
+		backCard = new ImageIcon(getClass().getResource("Back_card.png"));
+		for (int i = 0; i < labelPlayer2.length; i++) {
+			labelPlayer2[i] = new JLabel(backCard);
+			labelPlayer2[i].setSize(60, 87);
+		}
+		labelPlayer2[0].setLocation(240, 400);
+		labelPlayer2[1].setLocation(310, 400);
+		labelPlayer2[2].setLocation(380, 400);
 		/********************************************************************/
 		detailL = new ImageIcon(getClass().getResource("leftData.png"));
 		labeldetailL1 = new JLabel(detailL);
@@ -302,6 +369,8 @@ public class IngameFrame extends JFrame{
         });
 		
 		/********************************************************************/
+		
+		/********************************************************************/
 		//panel.add(showCha);
 		panel.add(sendMessage);
 		panel.add(butSend);
@@ -311,9 +380,21 @@ public class IngameFrame extends JFrame{
 		panel.add(letChat);
 		panel.add(labelAllCard);
 		/**********************************/
-		panel.add(labelBC[0]);
-		panel.add(labelBC[1]);
-		panel.add(labelBC[2]);
+		panel.add(labelBot[0]);
+		panel.add(labelBot[1]);
+		panel.add(labelBot[2]);
+		/**********************************/
+		panel.add(labelPlayer0[0]);
+		panel.add(labelPlayer0[1]);
+		panel.add(labelPlayer0[2]);
+		/**********************************/
+		panel.add(labelPlayer1[0]);
+		panel.add(labelPlayer1[1]);
+		panel.add(labelPlayer1[2]);
+		/**********************************/
+		panel.add(labelPlayer2[0]);
+		panel.add(labelPlayer2[1]);
+		panel.add(labelPlayer2[2]);
 		/**********************************/
 		panel.add(labeledPlayer);
 		panel.add(labeledLetChat);
