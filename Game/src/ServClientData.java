@@ -116,6 +116,7 @@ public class ServClientData extends Thread {
 							}
 						}
 						if (spt.length == 3) {
+							
 							if (spt[0].equals(server.ip)) {
 
 								int c = Integer.parseInt(spt[2]);
@@ -131,6 +132,10 @@ public class ServClientData extends Thread {
 //									server.labelPlayer0[0].setIcon(server.card[ran]);
 //								}
 								checkPlayer++;
+							}
+							else if(spt[0].equals("bot")) {
+								int ran = Integer.parseInt(spt[1]);
+								server.labelBot[checkPlayer].setIcon(server.card[ran]);
 							}
 							System.out.println("check win");
 
