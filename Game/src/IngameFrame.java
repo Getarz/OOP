@@ -56,10 +56,6 @@ public class IngameFrame extends JFrame{
 	JPanel panel = new JPanel(null);
 	/************CARD***************/
 	public ImageIcon card[] = new ImageIcon[52];
-	String clubs = "clubs_";
-	String diamonds = "diamonds_";
-	String hearts = "hearts_";
-	String spades = "spades_";
 	public JLabel labelCard[] = new JLabel[52];
 	public ImageIcon backCard;
 	public JLabel labelBot[] = new JLabel[3];
@@ -142,24 +138,17 @@ public class IngameFrame extends JFrame{
 		labelPlayerName[1].setLocation(780,50);
 		labelPlayerName[2].setLocation(45,505);
 		/********************************************************************/
-		int numcard = 0;
-		for (int i = 0; i < card.length; i++) {
-			if(i>=0&&i<=12) {
-				card[i] = new ImageIcon(getClass().getResource(clubs+(numcard+1)+".png"));
-			}
-			else if(i>=13&&i<=25) {
-				card[i] = new ImageIcon(getClass().getResource(spades+(numcard+1)+".png"));
-			}
-			else if(i>=26&&i<=38) {
-				card[i] = new ImageIcon(getClass().getResource(hearts+(numcard+1)+".png"));
-			}
-			else if(i>=39&&i<=51) {
-				card[i] = new ImageIcon(getClass().getResource(diamonds+(numcard+1)+".png"));
-			}
-			if(numcard==12||numcard==25||numcard==38) {
-				numcard=0;
-			}
-			numcard++;
+		for (int i = 0; i < 12; i++) {
+			card[i] = new ImageIcon(getClass().getResource("clubs_"+(i+1)+".png"));
+		}
+		for (int i = 13; i < 26; i++) {
+			card[i] = new ImageIcon(getClass().getResource("spades_"+(i+1)+".png"));
+		}
+		for (int i = 26; i < 39; i++) {
+			card[i] = new ImageIcon(getClass().getResource("hearts_"+(i+1)+".png"));
+		}
+		for (int i = 39; i < 52; i++) {
+			card[i] = new ImageIcon(getClass().getResource("spades_"+(i+1)+".png"));
 		}
 		for (int i = 0; i < labelCard.length; i++) {
 			labelCard[i] = new JLabel(card[i]);
