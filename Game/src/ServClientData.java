@@ -147,29 +147,29 @@ public class ServClientData extends Thread {
 							server.panel.revalidate();
 							server.revalidate();
 						}
-						if (spt.length == 2) {
-							System.out.println("check win");
-							set();
-							int c = Integer.parseInt(spt[1]);
-							if (spt[0].equals("win")) {
-								System.out.println("Win " + c);
-								if (c == 0) {
-									server.labelWinner.setIcon(server.Winner[0]);
-								} else if (c == 1) {
-									server.labelWinner.setIcon(server.Winner[1]);
-								} else if (c == 2) {
-									server.labelWinner.setIcon(server.Winner[2]);
-								} else if (c == 3) {
-									server.labelWinner.setIcon(server.Winner[5]);
-								}
-
-							}
-							if (spt[0].equals("lost")) {
-								server.labelWinner.setIcon(server.Winner[5]);
-							}
-							server.panel.revalidate();
-							server.revalidate();
-						}
+//						if (spt.length == 2) {
+//							System.out.println("check win");
+//							set();
+//							int c = Integer.parseInt(spt[1]);
+//							if (spt[0].equals("win")) {
+//								System.out.println("Win " + c);
+//								if (c == 0) {
+//									server.labelWinner.setIcon(server.Winner[0]);
+//								} else if (c == 1) {
+//									server.labelWinner.setIcon(server.Winner[1]);
+//								} else if (c == 2) {
+//									server.labelWinner.setIcon(server.Winner[2]);
+//								} else if (c == 3) {
+//									server.labelWinner.setIcon(server.Winner[5]);
+//								}
+//
+//							}
+//							if (spt[0].equals("lost")) {
+//								server.labelWinner.setIcon(server.Winner[5]);
+//							}
+//							server.panel.revalidate();
+//							server.revalidate();
+//						}
 
 					}
 					bufferIn.close();
