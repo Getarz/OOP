@@ -127,9 +127,9 @@ public class ServClientData extends Thread {
 								} else if (c == 2) {
 									server.labelPlayer2[checkPlayer].setIcon(server.card[ran]);
 								}
-//								else if(c==0) {
-//									server.labelPlayer0[0].setIcon(server.card[ran]);
-//								}
+								else if(c==3) {
+									server.labelBot[checkPlayer].setIcon(server.card[ran]);
+								}
 								checkPlayer++;
 							}
 							System.out.println("check win");
