@@ -135,7 +135,7 @@ public class ServClientData extends Thread {
 							}
 							else if(spt[0].equals("bot")) {
 								int ran = Integer.parseInt(spt[1]);
-								server.labelBot[checkPlayer].setIcon(server.card[ran]);
+								server.labelBot[checkBot].setIcon(server.card[ran]);
 								checkBot++;
 							}
 							System.out.println("check win");
