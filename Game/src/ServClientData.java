@@ -155,6 +155,9 @@ public class ServClientData extends Thread {
 								else if(c==2) {
 									server.labelWinner.setIcon(server.Winner[2]);
 								}
+								else if(c==3) {
+									server.labelWinner.setIcon(server.Winner[5]);
+								}
 								server.panel.revalidate();
 								server.revalidate();
 							}
