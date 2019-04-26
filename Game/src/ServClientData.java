@@ -138,13 +138,13 @@ public class ServClientData extends Thread {
 								server.labelBot[checkBot].setIcon(server.card[ran]);
 								checkBot++;
 							}
+							
+							
 							System.out.println("check win");
-
 							int c = Integer.parseInt(spt[2]);
-							int i = Integer.parseInt(spt[1]);
 							if (spt[1].equals(server.ip)) {
 								if (spt[0].equals("win")) {
-									server.labelWinner.setIcon(server.Winner[i]);
+									server.labelWinner.setIcon(server.Winner[c]);
 								}
 								else if(spt[0].equals("lost")) {
 									server.labelWinner.setIcon(server.Winner[5]);
