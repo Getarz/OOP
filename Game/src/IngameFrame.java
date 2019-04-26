@@ -289,7 +289,7 @@ public class IngameFrame extends JFrame{
 		JLabel showName = new JLabel("Name : " + namePlayer);
 		showName.setForeground(Color.BLACK);
 		showName.setFont(Tahoma20);
-		showName.setSize(200, 30);
+		showName.setSize(250, 30);
 		showName.setLocation(1030,43);
 		/********************************************************************/
 		JLabel letChat = new JLabel("LET'S CHAT");
