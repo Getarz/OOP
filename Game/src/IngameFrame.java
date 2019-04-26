@@ -107,6 +107,7 @@ public class IngameFrame extends JFrame{
 		labelAllCard = new JLabel(allCard);
 		labelAllCard.setSize(100,100);
 		labelAllCard.setLocation(300,270);
+		int xxxxx = 0;
 		/********************************************************************/
 		int numcard = 0;
 		for (int i = 0; i < card.length; i++) {
