@@ -230,6 +230,7 @@ public class IngameFrame extends JFrame{
 			labelBot[i] = new JLabel(backCard);
 			labelBot[i].setSize(60, 87);
 		}
+		labelBot[2].setIcon(null);
 		labelBot[0].setLocation(400, 275);
 		labelBot[1].setLocation(470, 275);
 		labelBot[2].setLocation(540, 275);
