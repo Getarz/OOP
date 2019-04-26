@@ -114,13 +114,15 @@ public class IngameFrame extends JFrame{
 		Winner[3] = new ImageIcon(getClass().getResource("Pom_WInner.gif"));
 		Winner[4] = new ImageIcon(getClass().getResource("Ying_WInner.gif"));
 		Winner[5] = new ImageIcon(getClass().getResource("Bot_WInner.gif"));
-		labelWinner = new JLabel();
+		labelWinner = new JLabel(Winner[5]);
 		labelWinner.setSize(500, 500);
 		labelWinner.setLocation(390, 110);
-		labelNameWinner = new JLabel();
+		labelWinner.setIcon(null);
+		labelNameWinner = new JLabel("Winner is ");
 		labelNameWinner.setFont(Tahoma20);
 		labelNameWinner.setSize(200, 60);
 		labelNameWinner.setLocation(530 , 520);
+		labelWinner.setText("");
 		/********************************************************************/
 		allCard = new ImageIcon(getClass().getResource("All_card.png"));
 		labelAllCard = new JLabel(allCard);
