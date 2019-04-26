@@ -36,7 +36,6 @@ public class ServClientData extends Thread {
 			servSoket = new ServerSocket(50113);
 			while (true) {
 				try {
-					System.out.println("Keep out");
 					String line = "";
 					Socket socket = servSoket.accept();
 					InputStream input = socket.getInputStream();
@@ -115,7 +114,7 @@ public class ServClientData extends Thread {
 
 						}
 						if(spt.length==2) {
-							if(spt[0].equals("stack")) {
+							if(spt[0].equals("set")) {
 								server.chat.append(spt[1] + "\n");
 								server.chat.revalidate();
 							}
