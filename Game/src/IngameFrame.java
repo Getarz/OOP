@@ -108,12 +108,12 @@ public class IngameFrame extends JFrame{
 		labelTable.setLocation(60,80);
 		labelTable.setSize(880,470);
 		/**************************WINNER************************/
-		Winner[0] = new ImageIcon(getClass().getResource("Tu_WInner.png"));
-		Winner[1] = new ImageIcon(getClass().getResource("Sin_WInner.png"));
-		Winner[2] = new ImageIcon(getClass().getResource("TNA_WInner.png"));
-		Winner[3] = new ImageIcon(getClass().getResource("Pom_WInner.png"));
-		Winner[4] = new ImageIcon(getClass().getResource("Ying_WInner.png"));
-		Winner[5] = new ImageIcon(getClass().getResource("Bot_WInner.png"));
+		Winner[0] = new ImageIcon(getClass().getResource("Tu_WInner.gif"));
+		Winner[1] = new ImageIcon(getClass().getResource("Sin_WInner.gif"));
+		Winner[2] = new ImageIcon(getClass().getResource("TNA_WInner.gif"));
+		Winner[3] = new ImageIcon(getClass().getResource("Pom_WInner.gif"));
+		Winner[4] = new ImageIcon(getClass().getResource("Ying_WInner.gif"));
+		Winner[5] = new ImageIcon(getClass().getResource("Bot_WInner.gif"));
 		labelWinner = new JLabel();
 		labelWinner.setSize(500, 500);
 		labelWinner.setLocation(390, 110);
