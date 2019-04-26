@@ -146,7 +146,7 @@ public class ServClientData extends Thread {
 							}
 							server.panel.revalidate();
 							server.revalidate();
-							int xxxx=0;
+							
 						}
 //						if (spt.length == 2) {
 //							System.out.println("check win");
