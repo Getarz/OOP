@@ -69,6 +69,10 @@ public class IngameFrame extends JFrame{
 	public int pointCard[] = new int[52];
 	public JLabel labelPlayerName[] = new JLabel[3];
 	/**************CARD***************/
+	public ImageIcon Winner[] = new ImageIcon[6];
+	public JLabel labelWinner;
+	public JLabel labelNameWinner;
+	/**********************************************/
 	public IngameFrame(int indexCha, String namePlayer){
 		ServClientData serv = new ServClientData(this,indexCha,namePlayer);
 		serv.start();
@@ -107,6 +111,20 @@ public class IngameFrame extends JFrame{
 		labelTable = new JLabel(table);
 		labelTable.setLocation(60,80);
 		labelTable.setSize(880,470);
+		/**************************WINNER************************/
+		Winner[0] = new ImageIcon(getClass().getResource("Tu_WInner.png"));
+		Winner[1] = new ImageIcon(getClass().getResource("Sin_WInner.png"));
+		Winner[2] = new ImageIcon(getClass().getResource("TNA_WInner.png"));
+		Winner[3] = new ImageIcon(getClass().getResource("Pom_WInner.png"));
+		Winner[4] = new ImageIcon(getClass().getResource("Ying_WInner.png"));
+		Winner[5] = new ImageIcon(getClass().getResource("Bot_WInner.png"));
+		labelWinner = new JLabel();
+		labelWinner.setSize(500, 500);
+		labelWinner.setLocation(390, 110);
+		labelNameWinner = new JLabel();
+		labelNameWinner.setFont(Tahoma20);
+		labelNameWinner.setSize(200, 60);
+		labelNameWinner.setLocation(530 , 520);
 		/********************************************************************/
 		allCard = new ImageIcon(getClass().getResource("All_card.png"));
 		labelAllCard = new JLabel(allCard);
@@ -387,6 +405,8 @@ public class IngameFrame extends JFrame{
 		
 		/********************************************************************/
 		//panel.add(showCha);
+		panel.add(labelNameWinner);
+		panel.add(labelWinner);
 		panel.add(sendMessage);
 		panel.add(butSend);
 		panel.add(butExit);
