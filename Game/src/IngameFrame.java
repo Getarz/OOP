@@ -156,8 +156,9 @@ public class IngameFrame extends JFrame{
 			else if(i>=39&&i<=51) {
 				card[i] = new ImageIcon(getClass().getResource(diamonds+(numcard+1)+".png"));
 			}
-			if(numcard==12)
+			if(numcard==12||numcard==25||numcard==38) {
 				numcard=0;
+			}
 			numcard++;
 		}
 		for (int i = 0; i < labelCard.length; i++) {
