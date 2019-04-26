@@ -140,6 +140,20 @@ public class ServClientData extends Thread {
 								checkPlayer++;
 							}
 						}
+						if(spt.length==2) {
+							int c = Integer.parseInt(spt[1]);
+							if(spt[0].equals("win")) {
+								if(c==0) {
+									server.labelWinner.setIcon(server.Winner[0]);
+								}
+								else if(c==1) {
+									server.labelWinner.setIcon(server.Winner[1]);
+								}
+								else if(c==2) {
+									server.labelWinner.setIcon(server.Winner[2]);
+								}
+							}
+						}
 
 					}
 					bufferIn.close();
