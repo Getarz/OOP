@@ -75,38 +75,44 @@ public class ServClientData extends Thread {
 									if(spt[0].equals(FrameGame.IP))
 									{
 										server.labelWait[i].setIcon(server.CharacterPlayer[indexCha]);
+										server.labelPlayerName[i].setText("Name : "+spt[2]);
 									}
 									else {
 										server.labelWait[i].setIcon(server.Character[indexCha]);
+										server.labelPlayerName[i].setText("Name : "+spt[2]);
 									}
-									
-									System.out.println("image 0");
 									System.out.println("image 0");
 								} else if (i == 1) {
 									if(spt[0].equals(FrameGame.IP))
 									{
 										server.labelWait[i].setIcon(server.CharacterPlayer[indexCha]);
+										server.labelPlayerName[i].setText("Name : "+spt[2]);
 									}
 									else {
 										server.labelWait[i].setIcon(server.Character[indexCha]);
+										server.labelPlayerName[i].setText("Name : "+spt[2]);
 									}
 									System.out.println("image 1");
 								} else if (i == 2) {
 									if(spt[0].equals(FrameGame.IP))
 									{
 										server.labelWait[i].setIcon(server.CharacterPlayer[indexCha]);
+										server.labelPlayerName[i].setText("Name : "+spt[2]);
 									}
 									else {
 										server.labelWait[i].setIcon(server.Character[indexCha]);
+										server.labelPlayerName[i].setText("Name : "+spt[2]);
 									}
 									System.out.println("image 2");
 								} else if (i == 3) {
 									if(spt[0].equals(FrameGame.IP))
 									{
 										server.labelWait[i].setIcon(server.CharacterPlayer[indexCha]);
+										server.labelPlayerName[i].setText("Name : "+spt[2]);
 									}
 									else {
 										server.labelWait[i].setIcon(server.Character[indexCha]);
+										server.labelPlayerName[i].setText("Name : "+spt[2]);
 									}
 									System.out.println("image 3");
 								}
