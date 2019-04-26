@@ -118,11 +118,10 @@ public class IngameFrame extends JFrame{
 		labelWinner.setSize(500, 500);
 		labelWinner.setLocation(390, 110);
 		labelWinner.setIcon(null);
-		labelNameWinner = new JLabel("Winner is ");
+		labelNameWinner = new JLabel();
 		labelNameWinner.setFont(Tahoma20);
 		labelNameWinner.setSize(200, 60);
 		labelNameWinner.setLocation(530 , 520);
-		labelWinner.setText("");
 		/********************************************************************/
 		allCard = new ImageIcon(getClass().getResource("All_card.png"));
 		labelAllCard = new JLabel(allCard);
