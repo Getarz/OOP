@@ -61,6 +61,8 @@ public class IngameFrame extends JFrame{
 	String hearts = "hearts_";
 	String spades = "spades_";
 	public JLabel labelCard[] = new JLabel[52];
+	public ImageIcon backCard;
+	public JLabel labelBC[] = new JLabel[12];
 	/************CARD***************/
 	public IngameFrame(int indexCha, String namePlayer){
 		ServClientData serv = new ServClientData(this,indexCha,namePlayer);
@@ -154,6 +156,15 @@ public class IngameFrame extends JFrame{
 		labelWait[1].setLocation(680,45);
 		labelWait[2].setLocation(230,500);
 		labelWait[3].setLocation(680,500);
+		/********************************************************************/
+		backCard = new ImageIcon(getClass().getResource("Back_card.png"));
+		for (int i = 0; i < labelBC.length; i++) {
+			labelBC[i] = new JLabel(backCard);
+			labelBC[i].setSize(60, 87);
+		}
+		labelBC[0].setLocation(400, 275);
+		labelBC[1].setLocation(470, 275);
+		labelBC[2].setLocation(540, 275);
 		/********************************************************************/
 		detailL = new ImageIcon(getClass().getResource("leftData.png"));
 		labeldetailL1 = new JLabel(detailL);
@@ -298,6 +309,10 @@ public class IngameFrame extends JFrame{
 		panel.add(showName);
 		panel.add(letChat);
 		panel.add(labelAllCard);
+		/**********************************/
+		panel.add(labelBC[0]);
+		panel.add(labelBC[1]);
+		panel.add(labelBC[2]);
 		/**********************************/
 		panel.add(labeledPlayer);
 		panel.add(labeledLetChat);
