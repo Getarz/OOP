@@ -64,6 +64,8 @@ public class IngameFrame extends JFrame{
 	public JLabel labelPlayer2[] = new JLabel[3];
 	public int pointCard[] = new int[52];
 	public JLabel labelPlayerName[] = new JLabel[3];
+	public JLabel labelMoney[] = new JLabel[4];
+	public static int money[] = new int[4];
 	/**************CARD***************/
 	public ImageIcon Winner[] = new ImageIcon[6];
 	public JLabel labelWinner;
@@ -122,6 +124,24 @@ public class IngameFrame extends JFrame{
 		labelNameWinner.setFont(Tahoma20);
 		labelNameWinner.setSize(200, 60);
 		labelNameWinner.setLocation(530 , 520);
+		/********************************************************************/
+		for (int i = 0; i < money.length-1; i++) {
+			money[i]=5000;
+		}
+		money[3]=100000;
+		labelMoney[0] = new JLabel("Money : "+money[0]);
+		labelMoney[1] = new JLabel("Money : "+money[1]);
+		labelMoney[2] = new JLabel("Money : "+money[2]);
+		labelMoney[3] = new JLabel("Money : "+money[3]);
+		labelMoney[0].setSize(200,60);
+		for (int i = 0; i < money.length; i++) {
+			labelMoney[i].setSize(200,60);
+			labelMoney[i].setFont(Tahoma16);
+		}
+		labelMoney[0].setLocation(45, 70);
+		labelMoney[1].setLocation(780, 70);
+		labelMoney[2].setLocation(45, 525);
+		labelMoney[3].setLocation(780, 525);
 		/********************************************************************/
 		allCard = new ImageIcon(getClass().getResource("All_card.png"));
 		labelAllCard = new JLabel(allCard);
@@ -417,6 +437,11 @@ public class IngameFrame extends JFrame{
 		panel.add(labelPlayerName[0]);
 		panel.add(labelPlayerName[1]);
 		panel.add(labelPlayerName[2]);
+		/**********************************/
+		panel.add(labelMoney[0]);
+		panel.add(labelMoney[1]);
+		panel.add(labelMoney[2]);
+		//panel.add(labelMoney[3]);
 		/**********************************/
 		panel.add(labelBot[0]);
 		panel.add(labelBot[1]);
