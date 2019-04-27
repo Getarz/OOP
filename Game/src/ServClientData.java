@@ -145,9 +145,11 @@ public class ServClientData extends Thread {
 							if (spt[1].equals(server.ip)) {
 								if (spt[0].equals("win")) {
 									server.labelWinner.setIcon(server.Winner[c]);
+									
 								}
 								else if(spt[0].equals("lost")) {
 									server.labelWinner.setIcon(server.Winner[5]);
+									AudioBotWin au = new AudioBotWin();
 								}
 							}
 							server.panel.revalidate();
