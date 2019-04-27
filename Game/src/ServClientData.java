@@ -116,17 +116,19 @@ public class ServClientData extends Thread {
 							}
 							
 							//************  check win *************************************
-							System.out.println("check win");
+							System.out.println("check ");
 							int c = Integer.parseInt(spt[2]);
 							int i = Integer.parseInt(spt[3]);
 							if (spt[1].equals(server.ip)) {
 								if (spt[0].equals("win")) {
+									System.out.println("Check win");
 									server.labelWinner.setIcon(server.Winner[c]);
 									server.money[i] = server.money[i]+500;
 									server.money[3] = server.money[3]-500;
 									server.labelMoney[i].setText("Money : "+server.money[i]);
 								}
 								else if(spt[0].equals("lost")) {
+									System.out.println("Check lost");
 									server.labelWinner.setIcon(server.Winner[5]);
 									server.money[i] = server.money[i]-500;
 									server.money[3] = server.money[3]+500;
