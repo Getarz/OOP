@@ -16,6 +16,7 @@ public class ServClientData extends Thread {
 	public String IP = "";
 	public int checkPlayer = 0;
 	public int checkBot = 0;
+
 	public ServClientData(IngameFrame server) {
 		this.server = server;
 	}
@@ -114,31 +115,12 @@ public class ServClientData extends Thread {
 								server.panel.revalidate();
 								server.revalidate();
 							}
+
+							// ************ check win *************************************
 							
-							//************  check win *************************************
-							System.out.println("check ");
-							int c = Integer.parseInt(spt[2]);
-							int i = Integer.parseInt(spt[3]);
-							if (spt[1].equals(server.ip)) {
-								if (spt[0].equals("win")) {
-									System.out.println("Check win");
-									server.labelWinner.setIcon(server.Winner[c]);
-									server.money[i] = server.money[i]+500;
-									server.money[3] = server.money[3]-500;
-									server.labelMoney[i].setText("Money : "+server.money[i]);
-								}
-								else if(spt[0].equals("lost")) {
-									System.out.println("Check lost");
-									server.labelWinner.setIcon(server.Winner[5]);
-									server.money[i] = server.money[i]-500;
-									server.money[3] = server.money[3]+500;
-									server.labelMoney[i].setText("Money : "+server.money[i]);
-									AudioBotWin au = new AudioBotWin();
-								}
-							}
 						}
 						if (spt.length == 3) {
-							
+
 							if (spt[0].equals(server.ip)) {
 
 								int c = Integer.parseInt(spt[2]);
@@ -154,53 +136,39 @@ public class ServClientData extends Thread {
 //									server.labelPlayer0[0].setIcon(server.card[ran]);
 //								}
 								checkPlayer++;
-							}
-							else if(spt[0].equals("bot")) {
+							} else if (spt[0].equals("bot")) {
 								int ran = Integer.parseInt(spt[1]);
 								server.labelBot[checkBot].setIcon(server.card[ran]);
 								checkBot++;
 							}
-							
-							
-							System.out.println("check win");
+						
+
+							server.panel.revalidate();
+							server.revalidate();
+
+						}
+						if (spt.length == 5) {
+							System.out.println("check ");
 							int c = Integer.parseInt(spt[2]);
+							int i = Integer.parseInt(spt[3]);
 							if (spt[1].equals(server.ip)) {
-								if (spt[0].equals("win")) {
+								System.out.println("Check win in 4");
+								if (spt[0].equals("Win")) {
+
 									server.labelWinner.setIcon(server.Winner[c]);
-									
-								}
-								else if(spt[0].equals("lost")) {
+									server.money[i] = server.money[i] + 500;
+									server.money[3] = server.money[3] - 500;
+									server.labelMoney[i].setText("Money : " + server.money[i]);
+								} else if (spt[0].equals("Lost")) {
+									System.out.println("Check lost");
 									server.labelWinner.setIcon(server.Winner[5]);
+									server.money[i] = server.money[i] - 500;
+									server.money[3] = server.money[3] + 500;
+									server.labelMoney[i].setText("Money : " + server.money[i]);
 									AudioBotWin au = new AudioBotWin();
 								}
 							}
-							server.panel.revalidate();
-							server.revalidate();
-							
 						}
-//						if (spt.length == 2) {
-//							System.out.println("check win");
-//							set();
-//							int c = Integer.parseInt(spt[1]);
-//							if (spt[0].equals("win")) {
-//								System.out.println("Win " + c);
-//								if (c == 0) {
-//									server.labelWinner.setIcon(server.Winner[0]);
-//								} else if (c == 1) {
-//									server.labelWinner.setIcon(server.Winner[1]);
-//								} else if (c == 2) {
-//									server.labelWinner.setIcon(server.Winner[2]);
-//								} else if (c == 3) {
-//									server.labelWinner.setIcon(server.Winner[5]);
-//								}
-//
-//							}
-//							if (spt[0].equals("lost")) {
-//								server.labelWinner.setIcon(server.Winner[5]);
-//							}
-//							server.panel.revalidate();
-//							server.revalidate();
-//						}
 
 					}
 					bufferIn.close();
