@@ -65,6 +65,7 @@ public class ServClientData extends Thread {
 							System.out.println("bug bug1");
 
 						}
+						
 						if (spt.length == 4) {
 							if (spt[0].equals("chat")) {
 								String str = spt[2] + " : " + spt[3];
@@ -140,6 +141,9 @@ public class ServClientData extends Thread {
 								int ran = Integer.parseInt(spt[1]);
 								server.labelBot[checkBot].setIcon(server.card[ran]);
 								checkBot++;
+							} else if(spt[0].equals("money")) {
+								int i = Integer.parseInt(spt[2]);
+								server.labelMoney[i].setText("Money : " + spt[1]);
 							}
 						
 
