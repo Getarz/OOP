@@ -72,15 +72,24 @@ public class ServClientData extends Thread {
 								server.chat.revalidate();
 							}
 							if(spt[3].equals("Draw")) {
+								int pos = Integer.parseInt(spt[2]);
+								int ran = Integer.parseInt(spt[1]);
 								if(spt[0].equals(FrameGame.IP)) {
-									int pos = Integer.parseInt(spt[2]);
-									int ran = Integer.parseInt(spt[1]);
 									if (server.position == 0) {
 										server.labelPlayer0[2].setIcon(server.card[ran]);
 									} else if (server.position == 1) {
 										server.labelPlayer1[2].setIcon(server.card[ran]);
 									} else if (server.position == 2) {
 										server.labelPlayer2[2].setIcon(server.card[ran]);
+									}
+								}
+								else {
+									if (pos == 0) {
+										server.labelPlayer0[2].setIcon(server.backCard);
+									} else if (pos == 1) {
+										server.labelPlayer1[2].setIcon(server.backCard);
+									} else if (pos== 2) {
+										server.labelPlayer2[2].setIcon(server.backCard);
 									}
 								}
 								
@@ -146,7 +155,7 @@ public class ServClientData extends Thread {
 
 							if (spt[0].equals(server.ip)) {
 								server.butDraw.setVisible(true);
-								server.butPass.setEnabled(true);
+								server.butPass.setVisible(true);
 								server.butPass.setEnabled(true);
 								server.butDraw.setEnabled(true);
 								int c = Integer.parseInt(spt[2]);
