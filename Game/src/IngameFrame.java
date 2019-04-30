@@ -438,12 +438,13 @@ public class IngameFrame extends JFrame{
 					labeltruePNG.setIcon(truePNG );
 					butReady.setBackground(Color.green);
 					checknumReady=1;
-					butReady.setEnabled(false);
+					
 					try {
-		                   Socket socket = new Socket(ClientFindServer.ipServ,50111);
-		                   PrintStream dataOut = new PrintStream(socket.getOutputStream());
+		                   Socket sockReady = new Socket(ClientFindServer.ipServ,50111);
+		                   PrintStream dataOut = new PrintStream(sockReady.getOutputStream());
 		                   dataOut.print("ReadyToPlay"+"-"+ip);
 		                   dataOut.close();
+		                   butReady.setEnabled(false);
 		             }
 					catch (Exception e1) {}
 				}
