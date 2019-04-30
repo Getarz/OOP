@@ -89,8 +89,7 @@ public class ServClientData extends Thread {
 								int i = Integer.parseInt(spt[3]);
 								int indexCha = Integer.parseInt(spt[1]);
 								System.out.println("bug bug2  " + i);
-								server.butDraw.setVisible(true);
-								server.butDraw.setEnabled(true);
+								
 								if (i == 0) {
 									if (spt[0].equals(FrameGame.IP)) {
 										server.labelWait[i].setIcon(server.CharacterPlayer[indexCha]);
@@ -146,7 +145,10 @@ public class ServClientData extends Thread {
 						if (spt.length == 3) {
 
 							if (spt[0].equals(server.ip)) {
-
+								server.butDraw.setVisible(true);
+								server.butPass.setEnabled(true);
+								server.butPass.setEnabled(true);
+								server.butDraw.setEnabled(true);
 								int c = Integer.parseInt(spt[2]);
 								int ran = Integer.parseInt(spt[1]);
 								if (c == 0) {

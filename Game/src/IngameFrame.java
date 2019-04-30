@@ -378,19 +378,16 @@ public class IngameFrame extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-                
 				try {
 					Socket sockDraw = new Socket(ClientFindServer.ipServ,50111);
 					PrintStream datatodraw = new PrintStream(sockDraw.getOutputStream());		
 					datatodraw.print("Draw"+"-"+ip+"-"+position);
 					datatodraw.close();
+					butPass.setVisible(false);
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-                
-				
 			}
 		});
 		/********************************************************************/
@@ -400,7 +397,24 @@ public class IngameFrame extends JFrame{
 		butPass.setLocation(510, 570);
 		butPass.setSize(120,40);
 		butPass.setBackground(Color.gray);
-		butPass.setEnabled(false);
+		butPass.setVisible(false);
+		butPass.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Socket sockDraw = new Socket(ClientFindServer.ipServ,50111);
+					PrintStream datatodraw = new PrintStream(sockDraw.getOutputStream());		
+					datatodraw.print("Pass"+"-"+ip+"-"+position);
+					datatodraw.close();
+					butDraw.setVisible(false);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			}
+		});
 		/********************************************************************/
 		truePNG = new ImageIcon(getClass().getResource("true.png"));
 		labeltruePNG = new JLabel(truePNG );
