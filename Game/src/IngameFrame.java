@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.IndexColorModel;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.net.InetAddress;
 import java.net.Socket;
@@ -50,7 +51,7 @@ public class IngameFrame extends JFrame{
 	public JButton butSend = new JButton("SEND");
 	public JButton butExit = new JButton("Exit Program");
 	public JTextField sendMessage = new JTextField();
-	
+	static public int position=0;
 	public ImageIcon allCard;
 	public JLabel labelAllCard;
 	JPanel panel = new JPanel(null);
@@ -372,7 +373,27 @@ public class IngameFrame extends JFrame{
 		butDraw.setLocation(380, 570);
 		butDraw.setSize(120,40);
 		butDraw.setBackground(Color.yellow);
-		butDraw.setEnabled(false);
+		butDraw.setEnabled(true);
+		butDraw.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+                
+				try {
+					Socket sockDraw = new Socket(ClientFindServer.ipServ,50111);
+					PrintStream datatodraw = new PrintStream(sockDraw.getOutputStream());
+					
+					datatodraw.print("Draw"+"-"+ip+"-"+position);
+					datatodraw.close();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+                
+				
+			}
+		});
 		/********************************************************************/
 		butPass.setBorder(new LineBorder(Color.BLACK, 3));
 		butPass.setFont(Tahoma16);
