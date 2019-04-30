@@ -173,13 +173,34 @@ public class ServClientData extends Thread {
 //									server.labelPlayer0[0].setIcon(server.card[ran]);
 //								}
 								checkPlayer++;
-							} else if (spt[0].equals("bot")) {
+								if(checkPlayer==3) {
+									checkPlayer=0;
+								}
+							} 
+							else if (spt[0].equals("bot")) {
 								int ran = Integer.parseInt(spt[1]);
 								server.labelBot[checkBot].setIcon(server.card[ran]);
 								checkBot++;
-							} else if(spt[0].equals("money")) {
+							} 
+							else if(spt[0].equals("money")) {
 								int i = Integer.parseInt(spt[2]);
 								server.labelMoney[i].setText("Money : " + spt[1]);
+							}
+							if(spt[0].equals("Set Back")) {
+								int pos = Integer.parseInt(spt[2]);
+								if(spt[1].equals("null")) {
+									
+								}
+								else {
+									int ran = Integer.parseInt(spt[1]);
+									if (pos == 0) {
+										server.labelPlayer0[checkPlayer].setIcon(server.card[ran]);
+									} else if (pos == 1) {
+										server.labelPlayer1[checkPlayer].setIcon(server.card[ran]);
+									} else if (pos == 2) {
+										server.labelPlayer2[checkPlayer].setIcon(server.card[ran]);
+									}
+								}
 							}
 						
 
