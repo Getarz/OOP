@@ -438,11 +438,11 @@ public class IngameFrame extends JFrame{
 					labeltruePNG.setIcon(truePNG );
 					butReady.setBackground(Color.green);
 					checknumReady=1;
-					chat.append(">> Ready ! ! !");
+					
 					try {
 		                   Socket sockReady = new Socket(ClientFindServer.ipServ,50111);
 		                   PrintStream dataOut = new PrintStream(sockReady.getOutputStream());
-		                   dataOut.print("ReadyToPlay"+"-"+ip);
+		                   dataOut.print("ReadyToPlay"+"-"+namePlayer);
 		                   dataOut.close();
 		                   butReady.setEnabled(false);
 		             }

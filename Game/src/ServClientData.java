@@ -63,7 +63,9 @@ public class ServClientData extends Thread {
 							System.out.println("bug bug1");
 
 						}
-						
+						if(spt.length==1 ){
+							server.chat.append(line + "\n");
+						}
 						if (spt.length == 4) {
 							if (spt[0].equals("chat")) {
 								String str = spt[2] + " : " + spt[3];
