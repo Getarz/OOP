@@ -373,7 +373,7 @@ public class IngameFrame extends JFrame{
 		butDraw.setLocation(380, 570);
 		butDraw.setSize(120,40);
 		butDraw.setBackground(Color.yellow);
-		butDraw.setEnabled(true);
+		butDraw.setVisible(false);
 		butDraw.addActionListener(new ActionListener() {
 			
 			@Override
@@ -382,8 +382,7 @@ public class IngameFrame extends JFrame{
                 
 				try {
 					Socket sockDraw = new Socket(ClientFindServer.ipServ,50111);
-					PrintStream datatodraw = new PrintStream(sockDraw.getOutputStream());
-					
+					PrintStream datatodraw = new PrintStream(sockDraw.getOutputStream());		
 					datatodraw.print("Draw"+"-"+ip+"-"+position);
 					datatodraw.close();
 				} catch (IOException e1) {

@@ -72,20 +72,25 @@ public class ServClientData extends Thread {
 								server.chat.revalidate();
 							}
 							if(spt[3].equals("Draw")) {
-								int pos = Integer.parseInt(spt[2]);
-								int ran = Integer.parseInt(spt[1]);
-								if (pos == 0) {
-									server.labelPlayer0[2].setIcon(server.card[ran]);
-								} else if (pos == 1) {
-									server.labelPlayer1[2].setIcon(server.card[ran]);
-								} else if (pos == 2) {
-									server.labelPlayer2[2].setIcon(server.card[ran]);
+								if(spt[0].equals(FrameGame.IP)) {
+									int pos = Integer.parseInt(spt[2]);
+									int ran = Integer.parseInt(spt[1]);
+									if (server.position == 0) {
+										server.labelPlayer0[2].setIcon(server.card[ran]);
+									} else if (server.position == 1) {
+										server.labelPlayer1[2].setIcon(server.card[ran]);
+									} else if (server.position == 2) {
+										server.labelPlayer2[2].setIcon(server.card[ran]);
+									}
 								}
+								
 							}
 							else {
 								int i = Integer.parseInt(spt[3]);
 								int indexCha = Integer.parseInt(spt[1]);
 								System.out.println("bug bug2  " + i);
+								server.butDraw.setVisible(true);
+								server.butDraw.setEnabled(true);
 								if (i == 0) {
 									if (spt[0].equals(FrameGame.IP)) {
 										server.labelWait[i].setIcon(server.CharacterPlayer[indexCha]);
@@ -120,17 +125,17 @@ public class ServClientData extends Thread {
 									}
 									System.out.println("image 2");
 								} 
-								else if (i == 3) {
-									if (spt[0].equals(FrameGame.IP)) {
-										server.labelWait[i].setIcon(server.CharacterPlayer[indexCha]);
-										server.labelPlayerName[i].setText("Name : " + spt[2]);
-										server.position = 3;
-									} else {
-										server.labelWait[i].setIcon(server.Character[indexCha]);
-										server.labelPlayerName[i].setText("Name : " + spt[2]);
-									}
-									System.out.println("image 3");
-								}
+//								else if (i == 3) {
+//									if (spt[0].equals(FrameGame.IP)) {
+//										server.labelWait[i].setIcon(server.CharacterPlayer[indexCha]);
+//										server.labelPlayerName[i].setText("Name : " + spt[2]);
+//										server.position = 3;
+//									} else {
+//										server.labelWait[i].setIcon(server.Character[indexCha]);
+//										server.labelPlayerName[i].setText("Name : " + spt[2]);
+//									}
+//									System.out.println("image 3");
+//								}
 								server.panel.revalidate();
 								server.revalidate();
 							}
