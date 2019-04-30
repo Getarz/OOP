@@ -60,7 +60,7 @@ public class FrameGame extends JFrame{
 		Font Tahoma12  = new Font("Tahoma", Font.BOLD, 12);
 		Font Tahoma16  = new Font("Tahoma", Font.BOLD, 16);
 		Font Tahoma24  = new Font("Tahoma", Font.BOLD, 24);
-		Font BMTC36  = new Font("Bernard MT Condensed", Font.BOLD, 36);
+		Font BMTC36  = new Font("Bernard MT", Font.BOLD, 36);
 		AudioTSover playTS = new AudioTSover();
 		/******************************************************/
 		setTitle("POK POK v1.0");

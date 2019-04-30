@@ -51,12 +51,9 @@ public class ServClientData extends Thread {
 						System.out.println("Message : " + line);
 						if (line.equalsIgnoreCase("Ready")) {
 							try {
-
 								Socket sk = new Socket(ClientFindServer.ipServ, 50111);
-
 								PrintStream doStream = new PrintStream(sk.getOutputStream());
 								doStream.println(FrameGame.IP + "-" + indexChar + "-" + name);
-
 								doStream.close();
 								System.out.println("ReadySucees");
 							} catch (Exception e1) {

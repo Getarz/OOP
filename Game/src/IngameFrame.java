@@ -71,6 +71,13 @@ public class IngameFrame extends JFrame{
 	public JLabel labelWinner;
 	public JLabel labelNameWinner;
 	/**********************************************/
+	public JButton butDraw = new JButton("Draw Card");
+	public JButton butPass = new JButton("Pass");
+	public JButton butReady = new JButton("Ready");
+	public ImageIcon truePNG;
+	public JLabel labeltruePNG ;
+	public static int checknumReady=0 ;
+	
 	public IngameFrame(int indexCha, String namePlayer){
 		ServClientData serv = new ServClientData(this,indexCha,namePlayer);
 		serv.start();
@@ -323,16 +330,29 @@ public class IngameFrame extends JFrame{
 		showNumPlayer.setFont(Tahoma16);
 		showNumPlayer.setSize(200, 30);
 		showNumPlayer.setLocation(1040,65);*/
-		/******************************************************/
-		
+		/****************************butSent************************/
 		butSend.setBorder(new LineBorder(Color.BLACK, 3));
 		butSend.setFont(Tahoma16);
 		butSend.setForeground(Color.BLACK);
 		butSend.setLocation(1200, 550);
 		butSend.setSize(60,40);
 		butSend.setBackground(new Color(0, 115, 153));
+		butSend.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Socket socket = new Socket(ClientFindServer.ipServ,50111);
+                    PrintStream dataOut = new PrintStream(socket.getOutputStream());
+                    String str = sendMessage.getText();
+                    sendMessage.setText("");
+                    dataOut.print("chat"+"-"+ip+"-"+FrameGame.textName.getText()+"-"+str);
+                    dataOut.close();
+                } catch (Exception e1) {
+                    System.out.println(">>>>>> "+e1);
+                }
+            }
+        });
 		/********************************************************************/
-		
 		butExit.setBorder(new LineBorder(Color.BLACK, 3));
 		butExit.setFont(Tahoma16);
 		butExit.setForeground(Color.BLACK);
@@ -343,6 +363,54 @@ public class IngameFrame extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
+			}
+		});
+		/********************************************************************/
+		butDraw.setBorder(new LineBorder(Color.BLACK, 3));
+		butDraw.setFont(Tahoma16);
+		butDraw.setForeground(Color.black);
+		butDraw.setLocation(380, 570);
+		butDraw.setSize(120,40);
+		butDraw.setBackground(Color.yellow);
+		butDraw.setEnabled(false);
+		/********************************************************************/
+		butPass.setBorder(new LineBorder(Color.BLACK, 3));
+		butPass.setFont(Tahoma16);
+		butPass.setForeground(Color.black);
+		butPass.setLocation(510, 570);
+		butPass.setSize(120,40);
+		butPass.setBackground(Color.gray);
+		butPass.setEnabled(false);
+		/********************************************************************/
+		truePNG = new ImageIcon(getClass().getResource("true.png"));
+		labeltruePNG = new JLabel(truePNG );
+		labeltruePNG.setIcon(null);
+		labeltruePNG.setSize(60, 60);
+		labeltruePNG.setLocation(570, 30);
+		
+		butReady.setBorder(new LineBorder(Color.BLACK, 3));
+		butReady.setFont(Tahoma16);
+		butReady.setForeground(Color.black);
+		butReady.setLocation(440, 40);
+		butReady.setSize(120,40);
+		butReady.setBackground(Color.gray);
+		butReady.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println(checknumReady);
+				if(checknumReady==0) {
+					labeltruePNG.setIcon(truePNG );
+					butReady.setBackground(Color.green);
+					checknumReady=1;
+					butReady.setEnabled(false);
+					try {
+		                   Socket socket = new Socket(ClientFindServer.ipServ,50111);
+		                   PrintStream dataOut = new PrintStream(socket.getOutputStream());
+		                   dataOut.print("ReadyToPlay"+"-"+ip);
+		                   dataOut.close();
+		             }
+					catch (Exception e1) {}
+				}
 			}
 		});
 		/********************************************************************/
@@ -401,25 +469,6 @@ public class IngameFrame extends JFrame{
 		labeledLetChat = new JLabel(edgeLetChat);
 		labeledLetChat.setSize(260, 60);
 		labeledLetChat.setLocation(1005,82);
-		/****************************butSent************************/
-		butSend.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    Socket socket = new Socket(ClientFindServer.ipServ,50111);
-                    PrintStream dataOut = new PrintStream(socket.getOutputStream());
-                    String str = sendMessage.getText();
-                    sendMessage.setText("");
-                    dataOut.print("chat"+"-"+ip+"-"+FrameGame.textName.getText()+"-"+str);
-                    dataOut.close();
-                } catch (Exception e1) {
-                    System.out.println(">>>>>> "+e1);
-                }
-
-            }
-        });
-		
 		/********************************************************************/
 		
 		/********************************************************************/
@@ -427,8 +476,12 @@ public class IngameFrame extends JFrame{
 		panel.add(labelNameWinner);
 		panel.add(labelWinner);
 		panel.add(sendMessage);
+		panel.add(labeltruePNG);
 		panel.add(butSend);
 		panel.add(butExit);
+		panel.add(butReady);
+		panel.add(butDraw);
+		panel.add(butPass);
 		/**********************************/
 		panel.add(showName);
 		panel.add(letChat);
