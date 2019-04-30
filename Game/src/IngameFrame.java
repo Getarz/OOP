@@ -383,8 +383,8 @@ public class IngameFrame extends JFrame{
 					PrintStream datatodraw = new PrintStream(sockDraw.getOutputStream());		
 					datatodraw.print("Draw"+"-"+ip+"-"+position);
 					datatodraw.close();
+					butPass.setEnabled(false);
 					butDraw.setEnabled(false);
-					
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -408,8 +408,8 @@ public class IngameFrame extends JFrame{
 					PrintStream datatodraw = new PrintStream(sockDraw.getOutputStream());		
 					datatodraw.print("Pass"+"-"+ip+"-"+position);
 					datatodraw.close();
+					butDraw.setEnabled(false);
 					butPass.setEnabled(false);
-					
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
