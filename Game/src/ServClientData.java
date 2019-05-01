@@ -184,32 +184,24 @@ public class ServClientData extends Thread {
 								server.butPass.setVisible(true);
 								server.butPass.setEnabled(true);
 								server.butDraw.setEnabled(true);
-								if(spt[0].equals(server.ip)) {
-									if (c == 0) {
-										server.labelPlayer0[checkPlayer].setIcon(server.card[ran]);
-									} else if (c == 1) {
-										server.labelPlayer1[checkPlayer].setIcon(server.card[ran]);
-									} else if (c == 2) {
-										server.labelPlayer2[checkPlayer].setIcon(server.card[ran]);
-									}
-								}
-								else {
-									if (c == 0) {
-										server.labelPlayer0[checkPlayer].setIcon(server.backCard);
-									} else if (c == 1) {
-										server.labelPlayer1[checkPlayer].setIcon(server.backCard);
-									} else if (c== 2) {
-										server.labelPlayer2[checkPlayer].setIcon(server.backCard);
-									}
 								
+								if (c == 0) {
+									server.labelPlayer0[checkPlayer].setIcon(server.card[ran]);
+								} else if (c == 1) {
+									server.labelPlayer1[checkPlayer].setIcon(server.card[ran]);
+								} else if (c == 2) {
+									server.labelPlayer2[checkPlayer].setIcon(server.card[ran]);
 								}
+//								else if(c==0) {
+//									server.labelPlayer0[0].setIcon(server.card[ran]);
+//								}
 								checkPlayer++;
-								if(checkPlayer==3) {
-									checkPlayer=0;
-								}
+							
 							}
 							
-							
+							if(checkPlayer==3) {
+								checkPlayer=0;
+							}
 							if (spt[0].equals("bot")) {
 								ran = Integer.parseInt(spt[1]);
 								server.labelBot[checkBot].setIcon(server.card[ran]);
