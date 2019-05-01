@@ -251,13 +251,14 @@ public class ServClientData extends Thread {
 							if (spt[1].equals(server.ip)) {
 								System.out.println("Check win in 4");
 								if (spt[0].equals("Win")) {
-
+									server.labelNameWinner.setText("Winner is "+server.namePlayer);
 									server.labelWinner.setIcon(server.Winner[c]);
 									server.money[i] = server.money[i] + 500;
 									server.money[3] = server.money[3] - 500;
 									server.labelMoney[i].setText("Money : " + server.money[i]);
 								} else if (spt[0].equals("Lost")) {
 									System.out.println("Check lost");
+									server.labelNameWinner.setText("Winner is BOT");
 									server.labelWinner.setIcon(server.Winner[5]);
 									server.money[i] = server.money[i] - 500;
 									server.money[3] = server.money[3] + 500;

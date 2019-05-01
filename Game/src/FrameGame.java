@@ -261,7 +261,7 @@ public class FrameGame extends JFrame{
 		JLabel enterName = new JLabel("ENTER CHARACTER NAME");
 		enterName.setFont(BMTC36);
 		enterName.setForeground(new Color(218,165,32));
-		enterName.setSize(420,40);
+		enterName.setSize(430,40);
 		enterName.setLocation(356 , 270);
 		JLabel conditionName = new JLabel("(*ใส่ตัวอักษรหรือตัวเลขรวมกันไม่เกิน 12 ตัว)");
 		conditionName.setFont(Tahoma12);

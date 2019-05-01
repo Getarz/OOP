@@ -130,8 +130,8 @@ public class IngameFrame extends JFrame{
 		labelWinner.setIcon(null);
 		labelNameWinner = new JLabel();
 		labelNameWinner.setFont(Tahoma20);
-		labelNameWinner.setSize(200, 60);
-		labelNameWinner.setLocation(530 , 520);
+		labelNameWinner.setSize(250, 60);
+		labelNameWinner.setLocation(520 , 520);
 		/********************************************************************/
 		for (int i = 0; i < money.length-1; i++) {
 			money[i]=5000;
