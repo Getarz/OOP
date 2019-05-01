@@ -197,16 +197,7 @@ public class ServClientData extends Thread {
 								checkPlayer++;
 							
 							}
-							else {
-								if (c == 0) {
-									server.labelPlayer0[2].setIcon(server.backCard);
-								} else if (c == 1) {
-									server.labelPlayer1[2].setIcon(server.backCard);
-								} else if (c== 2) {
-									server.labelPlayer2[2].setIcon(server.backCard);
-								}
-								checkPlayer++;
-							}
+							
 							if(checkPlayer==3) {
 								checkPlayer=0;
 							}
