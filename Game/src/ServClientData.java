@@ -186,23 +186,27 @@ public class ServClientData extends Thread {
 								int i = Integer.parseInt(spt[2]);
 								server.labelMoney[i].setText("Money : " + spt[1]);
 							}
-							if(spt[0].equals("Set Back")) {
-								int pos = Integer.parseInt(spt[2]);
-								if(spt[1].equals("null")) {
-									
-								}
-								else {
-									int ran = Integer.parseInt(spt[1]);
-									if (pos == 0) {
-										server.labelPlayer0[checkPlayer].setIcon(server.card[ran]);
-									} else if (pos == 1) {
-										server.labelPlayer1[checkPlayer].setIcon(server.card[ran]);
-									} else if (pos == 2) {
-										server.labelPlayer2[checkPlayer].setIcon(server.card[ran]);
+							//////////////// set show card /////////////////////
+							if(spt.length ==4&&spt[0].equals("Set Back")) {
+								if(spt[0].equals("Set Back")) {
+									System.out.println("Set back ...............");
+									int pos = Integer.parseInt(spt[3]);
+									if(spt[1].equals("-1")) {
+										System.out.println("No card draw");
+									}
+									else {
+										int ran = Integer.parseInt(spt[1]);
+										int indexPlay = Integer.parseInt(spt[2]);
+										if (pos == 0) {
+											server.labelPlayer0[checkPlayer].setIcon(server.card[ran]);
+										} else if (pos == 1) {
+											server.labelPlayer1[checkPlayer].setIcon(server.card[ran]);
+										} else if (pos == 2) {
+											server.labelPlayer2[checkPlayer].setIcon(server.card[ran]);
+										}
 									}
 								}
 							}
-						
 
 							server.panel.revalidate();
 							server.revalidate();
