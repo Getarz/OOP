@@ -13,7 +13,7 @@ public class AudioWin {
 	DataLine.Info info;
 	Clip clip;
 	public AudioWin() {
-	
+		System.out.println("MANANA");
 	}
 	void Win_100Year () {
 		try {
