@@ -283,7 +283,6 @@ public class IngameFrame extends JFrame{
 			labelPlayer1[i] = new JLabel(backCard);
 			labelPlayer1[i].setSize(60, 87);
 		}
-		labelPlayer1[2].setIcon(null);
 		labelPlayer1[0].setLocation(700, 160);
 		labelPlayer1[1].setLocation(630, 160);
 		labelPlayer1[2].setLocation(560, 160);
@@ -296,7 +295,6 @@ public class IngameFrame extends JFrame{
 			labelPlayer2[i] = new JLabel(backCard);
 			labelPlayer2[i].setSize(60, 87);
 		}
-		labelPlayer2[2].setIcon(null);
 		labelPlayer2[0].setLocation(240, 400);
 		labelPlayer2[1].setLocation(310, 400);
 		labelPlayer2[2].setLocation(380, 400);
