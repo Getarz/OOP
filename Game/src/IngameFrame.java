@@ -447,7 +447,6 @@ public class IngameFrame extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				System.out.println(checknumReady);
 				if(checknumReady==0) {
-					butReady.setEnabled(false);
 					labeltruePNG[0].setIcon(truePNG);
 					butReady.setBackground(Color.green);
 					checknumReady=1;
@@ -457,7 +456,7 @@ public class IngameFrame extends JFrame{
 		                   PrintStream dataOut = new PrintStream(sockReady.getOutputStream());
 		                   dataOut.print("ReadyToPlay"+"-"+namePlayer);
 		                   dataOut.close();
-		                   butReady.setEnabled(false);
+		                   butReady.setVisible(false);
 		             }
 					catch (Exception e1) {}
 				}
