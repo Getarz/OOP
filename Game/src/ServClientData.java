@@ -277,7 +277,7 @@ public class ServClientData extends Thread {
 								} else if (spt[0].equals("Lost")) {
 									System.out.println("Check lost");
 									server.labelNameWinner.setText("Winner is BOT");
-									server.labelNameWinner.setLocation(570 , 520);
+									server.labelNameWinner.setLocation(570, 520);
 									server.labelWinner.setIcon(server.Winner[5]);
 									server.money[i] = server.money[i] - 500;
 									server.money[3] = server.money[3] + 500;
