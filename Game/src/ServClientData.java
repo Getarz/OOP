@@ -187,14 +187,21 @@ public class ServClientData extends Thread {
 								
 								if (c == 0) {
 									server.labelPlayer0[checkPlayer].setIcon(server.card[ran]);
+									server.labelPlayer1[checkPlayer].setIcon(server.backCard);
+									server.labelPlayer2[checkPlayer].setIcon(server.backCard);
 								} else if (c == 1) {
+									server.labelPlayer0[checkPlayer].setIcon(server.backCard);
 									server.labelPlayer1[checkPlayer].setIcon(server.card[ran]);
+									server.labelPlayer2[checkPlayer].setIcon(server.backCard);
 								} else if (c == 2) {
+									server.labelPlayer0[checkPlayer].setIcon(server.backCard);
+									server.labelPlayer1[checkPlayer].setIcon(server.backCard);
 									server.labelPlayer2[checkPlayer].setIcon(server.card[ran]);
 								}
 //								else if(c==0) {
 //									server.labelPlayer0[0].setIcon(server.card[ran]);
 //								}
+								System.out.println("Check player : "+checkPlayer);
 								checkPlayer++;
 							
 							}
