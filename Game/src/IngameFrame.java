@@ -447,6 +447,7 @@ public class IngameFrame extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				System.out.println(checknumReady);
 				if(checknumReady==0) {
+					butReady.setEnabled(false);
 					labeltruePNG[0].setIcon(truePNG);
 					butReady.setBackground(Color.green);
 					checknumReady=1;
