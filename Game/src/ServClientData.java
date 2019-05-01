@@ -85,26 +85,7 @@ public class ServClientData extends Thread {
 										server.labelPlayer2[2].setIcon(server.card[ran]);
 									}
 								}
-								if(spt[0].equals("Set Back")) {
-									if(spt[0].equals("Set Back")) {
-										System.out.println("Set back ...............");
-										int poss = Integer.parseInt(spt[3]);
-										if(spt[1].equals("-1")) {
-											System.out.println("No card draw");
-										}
-										else {
-											int rann = Integer.parseInt(spt[1]);
-											int indexPlay = Integer.parseInt(spt[2]);
-											if (poss == 0) {
-												server.labelPlayer0[checkPlayer].setIcon(server.card[rann]);
-											} else if (poss == 1) {
-												server.labelPlayer1[checkPlayer].setIcon(server.card[rann]);
-											} else if (poss == 2) {
-												server.labelPlayer2[checkPlayer].setIcon(server.card[rann]);
-											}
-										}
-									}
-								}
+								
 								else {
 									if (pos == 0) {
 										server.labelPlayer0[2].setIcon(server.backCard);
@@ -115,6 +96,26 @@ public class ServClientData extends Thread {
 									}
 								}
 								
+							}
+							if(spt[0].equals("Set Back")) {
+								if(spt[0].equals("Set Back")) {
+									System.out.println("Set back ...............");
+									int poss = Integer.parseInt(spt[3]);
+									if(spt[1].equals("-1")) {
+										System.out.println("No card draw");
+									}
+									else {
+										int rann = Integer.parseInt(spt[1]);
+										int indexPlay = Integer.parseInt(spt[2]);
+										if (poss == 0) {
+											server.labelPlayer0[checkPlayer].setIcon(server.card[rann]);
+										} else if (poss == 1) {
+											server.labelPlayer1[checkPlayer].setIcon(server.card[rann]);
+										} else if (poss == 2) {
+											server.labelPlayer2[checkPlayer].setIcon(server.card[rann]);
+										}
+									}
+								}
 							}
 							else {
 								int i = Integer.parseInt(spt[3]);
