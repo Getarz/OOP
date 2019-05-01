@@ -76,7 +76,7 @@ public class IngameFrame extends JFrame{
 	public JButton butPass = new JButton("Pass");
 	public JButton butReady = new JButton("Ready");
 	public ImageIcon truePNG;
-	public JLabel labeltruePNG ;
+	public JLabel labeltruePNG[] = new JLabel[3] ;
 	public static int checknumReady=0 ;
 	
 	public IngameFrame(int indexCha, String namePlayer){
@@ -427,15 +427,19 @@ public class IngameFrame extends JFrame{
 		});
 		/********************************************************************/
 		truePNG = new ImageIcon(getClass().getResource("true.png"));
-		labeltruePNG = new JLabel(truePNG );
-		labeltruePNG.setIcon(null);
-		labeltruePNG.setSize(60, 60);
-		labeltruePNG.setLocation(570, 30);
+		for (int i = 0; i < labeltruePNG.length; i++) {
+			labeltruePNG[i] = new JLabel(truePNG);
+			labeltruePNG[i].setIcon(null);
+			labeltruePNG[i].setSize(60, 60);
+		}
+		labeltruePNG[0].setLocation(405, 30);
+		labeltruePNG[1].setLocation(475, 30); 
+		labeltruePNG[2].setLocation(545, 30);
 		
 		butReady.setBorder(new LineBorder(Color.BLACK, 3));
 		butReady.setFont(Tahoma16);
 		butReady.setForeground(Color.black);
-		butReady.setLocation(440, 40);
+		butReady.setLocation(440, 300);
 		butReady.setSize(120,40);
 		butReady.setBackground(Color.gray);
 		butReady.addActionListener(new ActionListener() {
@@ -443,7 +447,7 @@ public class IngameFrame extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				System.out.println(checknumReady);
 				if(checknumReady==0) {
-					labeltruePNG.setIcon(truePNG );
+					labeltruePNG[0].setIcon(truePNG);
 					butReady.setBackground(Color.green);
 					checknumReady=1;
 					
@@ -521,7 +525,9 @@ public class IngameFrame extends JFrame{
 		panel.add(labelNameWinner);
 		panel.add(labelWinner);
 		panel.add(sendMessage);
-		panel.add(labeltruePNG);
+		panel.add(labeltruePNG[0]);
+		panel.add(labeltruePNG[1]);
+		panel.add(labeltruePNG[2]);
 		panel.add(butSend);
 		panel.add(butExit);
 		panel.add(butReady);
