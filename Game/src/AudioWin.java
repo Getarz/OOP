@@ -12,9 +12,6 @@ public class AudioWin {
 	AudioFormat format;
 	DataLine.Info info;
 	Clip clip;
-	public AudioWin() {
-		System.out.println("MANANA");
-	}
 	void Win_100Year () {
 		try {
 			File initailFile = new File(System.getProperty("user.dir")	
@@ -117,6 +114,20 @@ public class AudioWin {
 		try {
 			File initailFile = new File(System.getProperty("user.dir")	
 					+ File.separator + "Lost_DakEveryDay.wav");
+			stream = AudioSystem.getAudioInputStream(initailFile);
+			format = stream.getFormat();
+			info = new DataLine.Info(Clip.class, format);
+			clip = (Clip) AudioSystem.getLine(info);
+			clip.open(stream);
+			clip.start();
+			clip.loop(Clip.LOOP_CONTINUOUSLY);
+		} 
+		catch (Exception e) {}
+	}
+	void Lost_maidaiDak () {
+		try {
+			File initailFile = new File(System.getProperty("user.dir")	
+					+ File.separator + "BotWin.wav");
 			stream = AudioSystem.getAudioInputStream(initailFile);
 			format = stream.getFormat();
 			info = new DataLine.Info(Clip.class, format);

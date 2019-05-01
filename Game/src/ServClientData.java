@@ -18,6 +18,7 @@ public class ServClientData extends Thread {
 	public int checkBot = 0;
 	public int position=0;
 	public int setBack=0;
+	
 	public ServClientData(IngameFrame server) {
 		this.server = server;
 	}
@@ -248,6 +249,7 @@ public class ServClientData extends Thread {
 
 						}
 						if (spt.length == 5) {
+							AudioWin audioWin = new AudioWin();
 							System.out.println("check ");
 							int c = Integer.parseInt(spt[2]);
 							int i = Integer.parseInt(spt[3]);
@@ -258,6 +260,19 @@ public class ServClientData extends Thread {
 									server.labelWinner.setIcon(server.Winner[c]);
 									server.money[i] = server.money[i] + 500;
 									server.money[3] = server.money[3] - 500;
+									int soum = (int)(Math.random()*5)+1;
+									if (soum==1) {
+										audioWin.Win_100Year();
+									}else if (soum==2) {
+										audioWin.Win_Ainong();
+									}else if (soum==3) {
+										audioWin.Win_Guzeanpai();
+									}else if (soum==4) {
+										audioWin.Win_hudMaMai();
+									}else if (soum==5) {
+										audioWin.Win_soypisoy();
+									}
+									
 									server.labelMoney[i].setText("Money : " + server.money[i]);
 								} else if (spt[0].equals("Lost")) {
 									System.out.println("Check lost");
@@ -267,7 +282,16 @@ public class ServClientData extends Thread {
 									server.money[i] = server.money[i] - 500;
 									server.money[3] = server.money[3] + 500;
 									server.labelMoney[i].setText("Money : " + server.money[i]);
-									AudioBotWin au = new AudioBotWin();
+									int soum1 = (int)(Math.random()*4)+1;
+									if (soum1==1) {
+										audioWin.Lost_DakEveryDay();
+									}else if (soum1==2) {
+										audioWin.Lost_dakEveryDay2();
+									}else if (soum1==3) {
+										audioWin.Lost_EatGrab();
+									}else if (soum1==4) {
+										audioWin.Lost_maidaiDak();
+									}
 								}
 							}
 						}
