@@ -14,7 +14,7 @@ public class AudioPiano {
 	public AudioPiano () {
 		try {
 			File initailFile = new File(System.getProperty("user.dir")	
-					+ File.separator + "Piano.wav");
+					+ File.separator + "Piano1.wav");
 			stream = AudioSystem.getAudioInputStream(initailFile);
 			format = stream.getFormat();
 			info = new DataLine.Info(Clip.class, format);
