@@ -17,7 +17,7 @@ public class ServClientData extends Thread {
 	public int checkPlayer = 0;
 	public int checkBot = 0;
 	public int position=0;
-	
+	public int setBack=0;
 	public ServClientData(IngameFrame server) {
 		this.server = server;
 	}
@@ -73,7 +73,7 @@ public class ServClientData extends Thread {
 								server.chat.append(str + "\n");
 								server.chat.revalidate();
 							}
-							if(spt[3].equals("Draw")) {
+							if(spt[3].equals("Draw")&&(setBack<3)) {
 								int pos = Integer.parseInt(spt[2]);
 								int ran = Integer.parseInt(spt[1]);
 								if(spt[0].equals(FrameGame.IP)) {
@@ -99,6 +99,7 @@ public class ServClientData extends Thread {
 							}
 							if(spt[0].equals("Set Back")) {
 								if(spt[0].equals("Set Back")) {
+									setBack ++;
 									System.out.println("Set back ...............");
 									int poss = Integer.parseInt(spt[3]);
 									int index = Integer.parseInt(spt[2]);
