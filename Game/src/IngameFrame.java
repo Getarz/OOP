@@ -433,7 +433,7 @@ public class IngameFrame extends JFrame{
 			labeltruePNG[i].setSize(60, 60);
 		}
 		labeltruePNG[0].setLocation(405, 30);
-		labeltruePNG[1].setLocation(475, 30);
+		labeltruePNG[1].setLocation(475, 30); 
 		labeltruePNG[2].setLocation(545, 30);
 		
 		butReady.setBorder(new LineBorder(Color.BLACK, 3));
