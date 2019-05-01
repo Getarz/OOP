@@ -121,7 +121,7 @@ public class ServClientData extends Thread {
 							else {
 								int i = Integer.parseInt(spt[3]);
 								int indexCha = Integer.parseInt(spt[1]);
-								System.out.println("bug bug2  " + i);
+								System.out.println("set player  " + i);
 								
 								if (i == 0) {
 									if (spt[0].equals(FrameGame.IP)) {
@@ -176,14 +176,14 @@ public class ServClientData extends Thread {
 							
 						}
 						if (spt.length == 3) {
-
+							int c = Integer.parseInt(spt[2]);
+							int ran = Integer.parseInt(spt[1]);
 							if (spt[0].equals(server.ip)) {
 								server.butDraw.setVisible(true);
 								server.butPass.setVisible(true);
 								server.butPass.setEnabled(true);
 								server.butDraw.setEnabled(true);
-								int c = Integer.parseInt(spt[2]);
-								int ran = Integer.parseInt(spt[1]);
+								
 								if (c == 0) {
 									server.labelPlayer0[checkPlayer].setIcon(server.card[ran]);
 								} else if (c == 1) {
@@ -195,16 +195,27 @@ public class ServClientData extends Thread {
 //									server.labelPlayer0[0].setIcon(server.card[ran]);
 //								}
 								checkPlayer++;
-								if(checkPlayer==3) {
-									checkPlayer=0;
+							
+							}
+							else {
+								if (c == 0) {
+									server.labelPlayer0[2].setIcon(server.backCard);
+								} else if (c == 1) {
+									server.labelPlayer1[2].setIcon(server.backCard);
+								} else if (c== 2) {
+									server.labelPlayer2[2].setIcon(server.backCard);
 								}
-							} 
-							else if (spt[0].equals("bot")) {
-								int ran = Integer.parseInt(spt[1]);
+								checkPlayer++;
+							}
+							if(checkPlayer==3) {
+								checkPlayer=0;
+							}
+							if (spt[0].equals("bot")) {
+								ran = Integer.parseInt(spt[1]);
 								server.labelBot[checkBot].setIcon(server.card[ran]);
 								checkBot++;
 							} 
-							else if(spt[0].equals("money")) {
+							if(spt[0].equals("money")) {
 								int i = Integer.parseInt(spt[2]);
 								server.labelMoney[i].setText("Money : " + spt[1]);
 							}
