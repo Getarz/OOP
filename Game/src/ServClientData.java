@@ -101,6 +101,7 @@ public class ServClientData extends Thread {
 								if(spt[0].equals("Set Back")) {
 									System.out.println("Set back ...............");
 									int poss = Integer.parseInt(spt[3]);
+									int index = Integer.parseInt(spt[2]);
 									if(spt[1].equals("-1")) {
 										System.out.println("No card draw");
 									}
@@ -108,11 +109,11 @@ public class ServClientData extends Thread {
 										int rann = Integer.parseInt(spt[1]);
 										int indexPlay = Integer.parseInt(spt[2]);
 										if (poss == 0) {
-											server.labelPlayer0[checkPlayer].setIcon(server.card[rann]);
+											server.labelPlayer0[index].setIcon(server.card[rann]);
 										} else if (poss == 1) {
-											server.labelPlayer1[checkPlayer].setIcon(server.card[rann]);
+											server.labelPlayer1[index].setIcon(server.card[rann]);
 										} else if (poss == 2) {
-											server.labelPlayer2[checkPlayer].setIcon(server.card[rann]);
+											server.labelPlayer2[index].setIcon(server.card[rann]);
 										}
 									}
 								}
