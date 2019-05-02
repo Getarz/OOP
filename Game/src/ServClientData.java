@@ -336,7 +336,7 @@ public class ServClientData extends Thread {
 									server.butReady.setEnabled(true);
 								}
 								server.butReady.setVisible(true);
-								
+								 
 							}
 						}
 
