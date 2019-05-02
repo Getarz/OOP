@@ -71,25 +71,15 @@ public class ServClientData extends Thread {
 						if(spt.length==1 ){
 							if(spt[0].equals("SetDefault")) {
 								System.out.println("set default ........");
-								AudioWin au = new AudioWin("stop");
-								
-//								for (int i = 0; i < 3; i++) {
-//									System.out.println("set images to null "+i);
-//									server.labelPlayer0[i].setIcon(null);
-//									server.labelPlayer1[i].setIcon(null);
-//									server.labelPlayer2[i].setIcon(null);
-//									server.labelBot[i].setIcon(null);
-//									server.labelNameWinner.setText("");;
-//									server.labelWinner.setIcon(null);
-//									server.butReady.setEnabled(true);
-//								}
 							}
 							
 							server.chat.append(line + "\n");
 						}
 						if (spt.length == 4) {
 							if (spt[0].equals("chat")) {
-								
+								if(spt[0].equals("chat")&&spt[2].equals(">>Game start in")&&spt[3].equals("5")) {
+									
+								}
 								String str = spt[2] + " : " + spt[3];
 								System.out.println(str+" >>");
 								server.chat.append(str + "\n");
