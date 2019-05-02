@@ -301,7 +301,7 @@ public class ServClientData extends Thread {
 									}
 								}
 								///////////// show money ////////////////////////
-								server.labelMoney[i].setText("Money : " + server.money[i]);
+								
 								
 								
 								int p=0;
