@@ -177,18 +177,7 @@ public class ServClientData extends Thread {
 										server.labelPlayerName[i].setText("Name : " + spt[2]);
 									}
 									//System.out.println("image 2");
-								} 
-//								else if (i == 3) {
-//									if (spt[0].equals(FrameGame.IP)) {
-//										server.labelWait[i].setIcon(server.CharacterPlayer[indexCha]);
-//										server.labelPlayerName[i].setText("Name : " + spt[2]);
-//										server.position = 3;
-//									} else {
-//										server.labelWait[i].setIcon(server.Character[indexCha]);
-//										server.labelPlayerName[i].setText("Name : " + spt[2]);
-//									}
-//									System.out.println("image 3");
-//								}
+								}
 								server.panel.revalidate();
 								server.revalidate();
 							}
@@ -291,7 +280,7 @@ public class ServClientData extends Thread {
 										audioWin.Win_soypisoy();
 									}
 									
-									server.labelMoney[i].setText("Money : " + server.money[i]);
+									
 								} else if (spt[0].equals("Lost")) {
 									//System.out.println("Check lost");
 									server.labelNameWinner.setText("Winner is BOT");
@@ -310,6 +299,10 @@ public class ServClientData extends Thread {
 										audioWin.Lost_maidaiDak();
 									}
 								}
+								///////////// show money ////////////////////////
+								server.labelMoney[i].setText("Money : " + server.money[i]);
+								
+								
 								int p=0;
 								while(true) {
 									try {
