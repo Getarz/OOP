@@ -266,6 +266,7 @@ public class ServClientData extends Thread {
 								if (spt[0].equals("Win")) {
 									server.labelNameWinner.setText("Winner is "+server.namePlayer);
 									server.labelWinner.setIcon(server.Winner[c]);
+									server.labelNameWinner.setLocation(520, 520);
 									//server.money[i] = server.money[i] + 500;
 									int hum1 = (int)(Math.random()*5)+1;
 									if (hum1==1) {
