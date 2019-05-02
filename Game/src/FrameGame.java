@@ -301,7 +301,7 @@ public class FrameGame extends JFrame{
 				else if (checkSound == 0){
 					labelSound.setIcon(opensound);
 					try {
-						File initailFile = new File(System.getProperty("user.dir")	
+						File initailFile = new File(System.getProperty("user.dir")	 
 								+ File.separator + "TSOVER.wav");
 						playTS.stream = AudioSystem.getAudioInputStream(initailFile);
 						playTS.format = playTS.stream.getFormat();
