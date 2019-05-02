@@ -262,7 +262,7 @@ public class ServClientData extends Thread {
 									server.labelWinner.setIcon(server.Winner[c]);
 									server.labelNameWinner.setLocation(520, 520);
 									//server.money[i] = server.money[i] + 500;
-									int hum1 = (int)(Math.random()*5)+1;
+									int hum1 = (int)(Math.random()*7)+1;
 									if (hum1==1) {
 										audioWin.Win_100Year();
 									}else if (hum1==2) {
@@ -273,6 +273,10 @@ public class ServClientData extends Thread {
 										audioWin.Win_hudMaMai();
 									}else if (hum1==5) {
 										audioWin.Win_soypisoy();
+									}else if (hum1==6) {
+										audioWin.Win_walkLong();
+									}else if (hum1==7) {
+										audioWin.Win_maidiadag22();
 									}
 									
 									
@@ -292,6 +296,12 @@ public class ServClientData extends Thread {
 										audioWin.Lost_EatGrab();
 									}else if (hum==4) {
 										audioWin.Lost_maidaiDak();
+									}else if (hum==5) {
+										audioWin.Lost_janow();
+									}else if (hum==6) {
+										audioWin.Lost_nacom();
+									}else if (hum==7) {
+										audioWin.Lost_tungjai();
 									}
 								}
 								///////////// show money ////////////////////////
