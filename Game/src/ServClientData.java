@@ -78,7 +78,11 @@ public class ServClientData extends Thread {
 						if (spt.length == 4) {
 							if (spt[0].equals("chat")) {
 								if(spt[0].equals("chat")&&spt[2].equals(">>Game start in")&&spt[3].equals("5")) {
-									
+									AudioWin au = new AudioWin();
+									au.StarGame();
+								}
+								if(spt[0].equals("chat")&&spt[2].equals(">>Game start in")&&spt[3].equals("0")) {
+									AudioWin au = new AudioWin("stop");
 								}
 								String str = spt[2] + " : " + spt[3];
 								System.out.println(str+" >>");
@@ -224,27 +228,7 @@ public class ServClientData extends Thread {
 								server.money[i] = m;
 								server.labelMoney[i].setText("Money : " + server.money[i]);
 							}
-							//////////////// set show card /////////////////////
-							/*if(spt.length ==4&&spt[0].equals("Set Back")) {
-								if(spt[0].equals("Set Back")) {
-									System.out.println("Set back ...............");
-									int pos = Integer.parseInt(spt[3]);
-									if(spt[1].equals("-1")) {
-										System.out.println("No card draw");
-									}
-									else {
-										int ran = Integer.parseInt(spt[1]);
-										int indexPlay = Integer.parseInt(spt[2]);
-										if (pos == 0) {
-											server.labelPlayer0[checkPlayer].setIcon(server.card[ran]);
-										} else if (pos == 1) {
-											server.labelPlayer1[checkPlayer].setIcon(server.card[ran]);
-										} else if (pos == 2) {
-											server.labelPlayer2[checkPlayer].setIcon(server.card[ran]);
-										}
-									}
-								}
-							}*/
+
 
 							server.panel.revalidate();
 							server.revalidate();
@@ -287,7 +271,7 @@ public class ServClientData extends Thread {
 									server.labelWinner.setIcon(server.Winner[5]);
 									//server.money[i] = server.money[i] - 500;
 									//server.labelMoney[i].setText("Money : " + server.money[i]);
-									int hum = (int)(Math.random()*4)+1;
+									int hum = (int)(Math.random()*7)+1;
 									if (hum==1) {
 										audioWin.Lost_DakEveryDay();
 									}else if (hum==2) {
