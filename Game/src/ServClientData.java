@@ -335,6 +335,9 @@ public class ServClientData extends Thread {
 									server.labelWinner.setIcon(null);
 									server.butReady.setEnabled(true);
 								}
+								checkPlayer=0;
+								checkBot=0;
+								setBack=0;
 								server.butReady.setVisible(true);
 								 
 							}
