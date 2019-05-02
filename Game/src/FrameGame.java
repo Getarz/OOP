@@ -2,6 +2,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -24,6 +26,8 @@ import javax.swing.border.LineBorder;
 import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
 
+import org.omg.CORBA.PUBLIC_MEMBER;
+
 public class FrameGame extends JFrame{
 	public String name = "";
 	public ImageIcon bg;
@@ -35,6 +39,8 @@ public class FrameGame extends JFrame{
 	public ImageIcon arrowRight;
 	public ImageIcon snoopDog;
 	public ImageIcon Casino;
+	public ImageIcon closesound;
+	public ImageIcon opensound;
 	public JLabel labelBG;
 	public JLabel labelCard;
 	public JLabel labelCard2;
@@ -45,9 +51,11 @@ public class FrameGame extends JFrame{
 	public JLabel showCha;
 	public JLabel labelSnoopDog2;
 	public JLabel labelCasino;
+	public JLabel labelSound;
 	int indexCha = 0;
 	static JTextField textName = new JTextField();
 	static public String IP="";	
+	public static int checkSound = 1;
 	public FrameGame(){
 		try {
 			InetAddress inetAddress = InetAddress.getLocalHost();
@@ -269,7 +277,63 @@ public class FrameGame extends JFrame{
 		conditionName.setSize(250,40);
 		conditionName.setLocation(480, 360);
 		/******************************************************/
-		
+		closesound = new ImageIcon(getClass().getResource("close_sound.png"));
+		opensound = new ImageIcon(getClass().getResource("open_sound.png"));
+		labelSound = new JLabel(opensound);
+		labelSound.setLocation(980,620);
+		labelSound.setSize(60, 60);
+		labelSound.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				System.out.println(checkSound);
+				if (checkSound == 1) {
+					labelSound.setIcon(closesound);
+					playTS.clip.close();
+					checkSound = 0;
+				}
+				else if (checkSound == 0){
+					labelSound.setIcon(opensound);
+					try {
+						File initailFile = new File(System.getProperty("user.dir")	
+								+ File.separator + "TSOVER.wav");
+						playTS.stream = AudioSystem.getAudioInputStream(initailFile);
+						playTS.format = playTS.stream.getFormat();
+						playTS.info = new DataLine.Info(Clip.class, playTS.format);
+						playTS.clip = (Clip) AudioSystem.getLine(playTS.info);
+						playTS.clip.open(playTS.stream);
+						playTS.clip.start();
+						playTS.clip.loop(Clip.LOOP_CONTINUOUSLY);
+					} 
+					catch (Exception e2) {}
+					checkSound = 1;
+				}
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		/******************************************************/
 		snoopDog = new ImageIcon(getClass().getResource("giphy.gif"));
 		labelSnoopDog2 = new JLabel(snoopDog);
@@ -288,6 +352,7 @@ public class FrameGame extends JFrame{
 		panel.add(conditionName);
 		panel.add(showCha);
 		panel.add(labelCasino);
+		panel.add(labelSound);
 		panel.add(labelSnoopDog2);
 		panel.add(labelArrowLeft);
 		panel.add(labelArrowRight);
