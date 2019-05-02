@@ -88,6 +88,34 @@ public class AudioWin {
 		} 
 		catch (Exception e) {}
 	}
+	void Win_walkLong () {
+		try {
+			File initailFile = new File(System.getProperty("user.dir")	
+					+ File.separator + "Win_walkLong.wav");
+			stream = AudioSystem.getAudioInputStream(initailFile);
+			format = stream.getFormat();
+			info = new DataLine.Info(Clip.class, format);
+			clip = (Clip) AudioSystem.getLine(info);
+			clip.open(stream);
+			clip.start();
+			clip.loop(Clip.LOOP_CONTINUOUSLY);
+		} 
+		catch (Exception e) {}
+	}
+	void Win_maidiadag22 () {
+		try {
+			File initailFile = new File(System.getProperty("user.dir")	
+					+ File.separator + "Win_maidiadag22.wav");
+			stream = AudioSystem.getAudioInputStream(initailFile);
+			format = stream.getFormat();
+			info = new DataLine.Info(Clip.class, format);
+			clip = (Clip) AudioSystem.getLine(info);
+			clip.open(stream);
+			clip.start();
+			clip.loop(Clip.LOOP_CONTINUOUSLY);
+		} 
+		catch (Exception e) {}
+	}
 	void Lost_EatGrab () {
 		try {
 			File initailFile = new File(System.getProperty("user.dir")	
@@ -134,6 +162,62 @@ public class AudioWin {
 		try {
 			File initailFile = new File(System.getProperty("user.dir")	
 					+ File.separator + "BotWin.wav");
+			stream = AudioSystem.getAudioInputStream(initailFile);
+			format = stream.getFormat();
+			info = new DataLine.Info(Clip.class, format);
+			clip = (Clip) AudioSystem.getLine(info);
+			clip.open(stream);
+			clip.start();
+			clip.loop(Clip.LOOP_CONTINUOUSLY);
+		} 
+		catch (Exception e) {}
+	}
+	void Lost_janow () {
+		try {
+			File initailFile = new File(System.getProperty("user.dir")	
+					+ File.separator + "Lost_janow.wav");
+			stream = AudioSystem.getAudioInputStream(initailFile);
+			format = stream.getFormat();
+			info = new DataLine.Info(Clip.class, format);
+			clip = (Clip) AudioSystem.getLine(info);
+			clip.open(stream);
+			clip.start();
+			clip.loop(Clip.LOOP_CONTINUOUSLY);
+		} 
+		catch (Exception e) {}
+	}
+	void Lost_nacom () {
+		try {
+			File initailFile = new File(System.getProperty("user.dir")	
+					+ File.separator + "Lost_nacom.wav");
+			stream = AudioSystem.getAudioInputStream(initailFile);
+			format = stream.getFormat();
+			info = new DataLine.Info(Clip.class, format);
+			clip = (Clip) AudioSystem.getLine(info);
+			clip.open(stream);
+			clip.start();
+			clip.loop(Clip.LOOP_CONTINUOUSLY);
+		} 
+		catch (Exception e) {}
+	}
+	void Lost_tungjai () {
+		try {
+			File initailFile = new File(System.getProperty("user.dir")	
+					+ File.separator + "Lost_tungjai.wav");
+			stream = AudioSystem.getAudioInputStream(initailFile);
+			format = stream.getFormat();
+			info = new DataLine.Info(Clip.class, format);
+			clip = (Clip) AudioSystem.getLine(info);
+			clip.open(stream);
+			clip.start();
+			clip.loop(Clip.LOOP_CONTINUOUSLY);
+		} 
+		catch (Exception e) {}
+	}
+	void StarGame () {
+		try {
+			File initailFile = new File(System.getProperty("user.dir")	
+					+ File.separator + "StarGame.wav");
 			stream = AudioSystem.getAudioInputStream(initailFile);
 			format = stream.getFormat();
 			info = new DataLine.Info(Clip.class, format);
