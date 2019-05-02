@@ -81,7 +81,7 @@ public class ServClientData extends Thread {
 									AudioWin au = new AudioWin();
 									au.StarGame();
 								}
-								if(spt[0].equals("chat")&&spt[2].equals(">>Game start in")&&spt[3].equals("0")) {
+								if(spt[0].equals("chat")&&spt[2].equals(">>Game start in")&&spt[3].equals("1")) {
 									AudioWin au = new AudioWin("stop");
 								}
 								String str = spt[2] + " : " + spt[3];
