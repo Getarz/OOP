@@ -278,7 +278,6 @@ public class ServClientData extends Thread {
 									server.labelNameWinner.setText("Winner is "+server.namePlayer);
 									server.labelWinner.setIcon(server.Winner[c]);
 									server.money[i] = server.money[i] + 500;
-									server.money[3] = server.money[3] - 500;
 									int hum1 = (int)(Math.random()*5)+1;
 									if (hum1==1) {
 										audioWin.Win_100Year();
@@ -299,7 +298,6 @@ public class ServClientData extends Thread {
 									server.labelNameWinner.setLocation(570, 520);
 									server.labelWinner.setIcon(server.Winner[5]);
 									server.money[i] = server.money[i] - 500;
-									server.money[3] = server.money[3] + 500;
 									server.labelMoney[i].setText("Money : " + server.money[i]);
 									int hum = (int)(Math.random()*4)+1;
 									if (hum==1) {
