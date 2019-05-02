@@ -446,12 +446,13 @@ public class IngameFrame extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println(checknumReady);
-				if(checknumReady==0) {
-					labeltruePNG[0].setIcon(truePNG);
-					butReady.setBackground(Color.green);
-					checknumReady=1;
-					
+//				if(checknumReady==0) {
+//					labeltruePNG[0].setIcon(truePNG);
+//					butReady.setBackground(Color.green);
+//					checknumReady=1;
+//					
 					try {
+						System.out.println("but Ready");
 		                   Socket sockReady = new Socket(ClientFindServer.ipServ,50111);
 		                   PrintStream dataOut = new PrintStream(sockReady.getOutputStream());
 		                   dataOut.print("ReadyToPlay"+"-"+namePlayer);
@@ -459,7 +460,7 @@ public class IngameFrame extends JFrame{
 		                   butReady.setVisible(false);
 		             }
 					catch (Exception e1) {}
-				}
+				
 			}
 		});
 		/********************************************************************/

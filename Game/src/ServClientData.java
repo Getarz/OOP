@@ -19,6 +19,7 @@ public class ServClientData extends Thread {
 	public int position=0;
 	public int setBack=0;
 	
+	public int checkReady =0;
 	public ServClientData(IngameFrame server) {
 		this.server = server;
 	}
@@ -53,6 +54,7 @@ public class ServClientData extends Thread {
 						System.out.println("Message : " + line);
 						if (line.equalsIgnoreCase("Ready")) {
 							try {
+								server.butReady.setVisible(true);
 								Socket sk = new Socket(ClientFindServer.ipServ, 50111);
 								PrintStream doStream = new PrintStream(sk.getOutputStream());
 								doStream.println(FrameGame.IP + "-" + indexChar + "-" + name);
@@ -65,12 +67,29 @@ public class ServClientData extends Thread {
 
 						}
 						if(spt.length==1 ){
+							if(spt[0].equals("SetDefault")) {
+								System.out.println("set default ........");
+								AudioWin au = new AudioWin("stop");
+								
+//								for (int i = 0; i < 3; i++) {
+//									System.out.println("set images to null "+i);
+//									server.labelPlayer0[i].setIcon(null);
+//									server.labelPlayer1[i].setIcon(null);
+//									server.labelPlayer2[i].setIcon(null);
+//									server.labelBot[i].setIcon(null);
+//									server.labelNameWinner.setText("");;
+//									server.labelWinner.setIcon(null);
+//									server.butReady.setEnabled(true);
+//								}
+							}
+							
 							server.chat.append(line + "\n");
 						}
 						if (spt.length == 4) {
 							if (spt[0].equals("chat")) {
+								
 								String str = spt[2] + " : " + spt[3];
-								System.out.println(str);
+								System.out.println(str+" >>");
 								server.chat.append(str + "\n");
 								server.chat.revalidate();
 							}
@@ -123,7 +142,7 @@ public class ServClientData extends Thread {
 							else {
 								int i = Integer.parseInt(spt[3]);
 								int indexCha = Integer.parseInt(spt[1]);
-								System.out.println("set player  " + i);
+								//System.out.println("set player  " + i);
 								
 								if (i == 0) {
 									if (spt[0].equals(FrameGame.IP)) {
@@ -135,7 +154,7 @@ public class ServClientData extends Thread {
 										server.labelWait[i].setIcon(server.Character[indexCha]);
 										server.labelPlayerName[i].setText("Name : " + spt[2]);
 									}
-									System.out.println("image 0");
+									//System.out.println("image 0");
 								} 
 								else if (i == 1) {
 									if (spt[0].equals(FrameGame.IP)) {
@@ -146,7 +165,7 @@ public class ServClientData extends Thread {
 										server.labelWait[i].setIcon(server.Character[indexCha]);
 										server.labelPlayerName[i].setText("Name : " + spt[2]);
 									}
-									System.out.println("image 1");
+									//System.out.println("image 1");
 								} 
 								else if (i == 2) {
 									if (spt[0].equals(FrameGame.IP)) {
@@ -157,7 +176,7 @@ public class ServClientData extends Thread {
 										server.labelWait[i].setIcon(server.Character[indexCha]);
 										server.labelPlayerName[i].setText("Name : " + spt[2]);
 									}
-									System.out.println("image 2");
+									//System.out.println("image 2");
 								} 
 //								else if (i == 3) {
 //									if (spt[0].equals(FrameGame.IP)) {
@@ -250,11 +269,11 @@ public class ServClientData extends Thread {
 						}
 						if (spt.length == 5) {
 							AudioWin audioWin = new AudioWin();
-							System.out.println("check ");
+							//System.out.println("check ");
 							int c = Integer.parseInt(spt[2]);
 							int i = Integer.parseInt(spt[3]);
 							if (spt[1].equals(server.ip)) {
-								System.out.println("Check win in 4");
+								//System.out.println("Check win in 4");
 								if (spt[0].equals("Win")) {
 									server.labelNameWinner.setText("Winner is "+server.namePlayer);
 									server.labelWinner.setIcon(server.Winner[c]);
@@ -275,7 +294,7 @@ public class ServClientData extends Thread {
 									
 									server.labelMoney[i].setText("Money : " + server.money[i]);
 								} else if (spt[0].equals("Lost")) {
-									System.out.println("Check lost");
+									//System.out.println("Check lost");
 									server.labelNameWinner.setText("Winner is BOT");
 									server.labelNameWinner.setLocation(570, 520);
 									server.labelWinner.setIcon(server.Winner[5]);
@@ -293,6 +312,31 @@ public class ServClientData extends Thread {
 										audioWin.Lost_maidaiDak();
 									}
 								}
+								int p=0;
+								while(true) {
+									try {
+									Thread.sleep(1000);
+										if (p == 6) {
+											break;
+										}
+									p++;
+									} catch (Exception e) {
+										// TODO: handle exception
+									}
+								}
+								for (int j = 0; j < 3; j++) {
+									audioWin.clip.stop();
+									System.out.println("set images to null "+i);
+									server.labelPlayer0[j].setIcon(null);
+									server.labelPlayer1[j].setIcon(null);
+									server.labelPlayer2[j].setIcon(null);
+									server.labelBot[j].setIcon(null);
+									server.labelNameWinner.setText("");;
+									server.labelWinner.setIcon(null);
+									server.butReady.setEnabled(true);
+								}
+								server.butReady.setVisible(true);
+								
 							}
 						}
 

@@ -12,6 +12,12 @@ public class AudioWin {
 	AudioFormat format;
 	DataLine.Info info;
 	Clip clip;
+	public AudioWin(String string) {
+		clip.stop();
+	}
+	public AudioWin() {
+		
+	}
 	void Win_100Year () {
 		try {
 			File initailFile = new File(System.getProperty("user.dir")	
