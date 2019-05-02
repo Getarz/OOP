@@ -288,7 +288,7 @@ public class ServClientData extends Thread {
 									server.labelNameWinner.setLocation(570, 520);
 									server.labelWinner.setIcon(server.Winner[5]);
 									//server.money[i] = server.money[i] - 500;
-									server.labelMoney[i].setText("Money : " + server.money[i]);
+									//server.labelMoney[i].setText("Money : " + server.money[i]);
 									int hum = (int)(Math.random()*4)+1;
 									if (hum==1) {
 										audioWin.Lost_DakEveryDay();
@@ -301,7 +301,7 @@ public class ServClientData extends Thread {
 									}
 								}
 								///////////// show money ////////////////////////
-								server.labelMoney[i].setText("Money : " + server.money[i]);
+								//server.labelMoney[i].setText("Money : " + server.money[i]);
 								
 								
 								int p=0;
