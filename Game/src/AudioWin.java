@@ -224,7 +224,6 @@ public class AudioWin {
 			clip = (Clip) AudioSystem.getLine(info);
 			clip.open(stream);
 			clip.start();
-			clip.loop(Clip.LOOP_CONTINUOUSLY);
 		} 
 		catch (Exception e) {}
 	}
