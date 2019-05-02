@@ -442,6 +442,7 @@ public class IngameFrame extends JFrame{
 		butReady.setLocation(440, 300);
 		butReady.setSize(120,40);
 		butReady.setBackground(Color.gray);
+		butReady.setVisible(false);
 		butReady.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

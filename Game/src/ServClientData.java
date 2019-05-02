@@ -9,6 +9,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.text.SimpleDateFormat;
 
+import javax.print.attribute.standard.Severity;
+
 public class ServClientData extends Thread {
 	IngameFrame server;
 	public String name = "";
@@ -18,7 +20,7 @@ public class ServClientData extends Thread {
 	public int checkBot = 0;
 	public int position=0;
 	public int setBack=0;
-	
+	public int win =0;
 	public int checkReady =0;
 	public ServClientData(IngameFrame server) {
 		this.server = server;
@@ -143,7 +145,7 @@ public class ServClientData extends Thread {
 								int i = Integer.parseInt(spt[3]);
 								int indexCha = Integer.parseInt(spt[1]);
 								//System.out.println("set player  " + i);
-								
+								server.butReady.setVisible(true);
 								if (i == 0) {
 									if (spt[0].equals(FrameGame.IP)) {
 										server.labelWait[i].setIcon(server.CharacterPlayer[indexCha]);
@@ -228,7 +230,9 @@ public class ServClientData extends Thread {
 							} 
 							if(spt[0].equals("money")) {
 								int i = Integer.parseInt(spt[2]);
-								server.labelMoney[i].setText("Money : " + spt[1]);
+								int m = Integer.parseInt(spt[1]);
+								server.money[i] = m;
+								server.labelMoney[i].setText("Money : " + server.money[i]);
 							}
 							//////////////// set show card /////////////////////
 							/*if(spt.length ==4&&spt[0].equals("Set Back")) {
@@ -301,7 +305,9 @@ public class ServClientData extends Thread {
 									}
 								}
 								///////////// show money ////////////////////////
-								
+								for (int j = 0; j < server.money.length-1; j++) {
+									server.labelMoney[i].setText("Money : " + server.money[j]);
+								}
 								
 								
 								int p=0;
