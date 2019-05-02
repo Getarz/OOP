@@ -78,6 +78,9 @@ public class IngameFrame extends JFrame{
 	public ImageIcon truePNG;
 	public JLabel labeltruePNG[] = new JLabel[3] ;
 	public static int checknumReady=0 ;
+	public JTextField betMoney = new JTextField();
+	public JButton butBet = new JButton("BET");
+	public int moneybet = 0;
 	
 	public IngameFrame(int indexCha, String namePlayer){
 		ServClientData serv = new ServClientData(this,indexCha,namePlayer);
@@ -510,6 +513,34 @@ public class IngameFrame extends JFrame{
 		chat.setSize(250, 400);
 		chat.setLocation(1010, 140);
 		/********************************************************************/
+		betMoney.setBorder(new LineBorder(Color.BLACK, 2));
+		betMoney.setText("100");;
+		betMoney.setDocument(new FixedSizeDocument(3));
+		betMoney.setForeground(Color.blue);
+		betMoney.setFont(Tahoma16Plain);
+		betMoney.setSize(120, 40);
+		betMoney.setLocation(820, 595);
+		
+		butBet.setBorder(new LineBorder(Color.BLACK, 3));
+		butBet.setFont(Tahoma16);
+		butBet.setForeground(Color.BLACK);
+		butBet.setLocation(940, 595);
+		butBet.setSize(60,40);
+		butBet.setBackground(new Color(0, 115, 153));
+		butBet.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String strMoney = betMoney.getText();
+				try {
+					moneybet = Integer.parseInt(strMoney);
+					betMoney.setText("OK");
+				} catch (Exception e2) {
+					betMoney.setText("Err");
+				}
+			}
+		});
+		/********************************************************************/
 		edgePlayer = new ImageIcon(getClass().getResource("account.png"));
 		labeledPlayer = new JLabel(edgePlayer);
 		labeledPlayer.setSize(260, 60);
@@ -566,6 +597,8 @@ public class IngameFrame extends JFrame{
 		/**********************************/
 		panel.add(labeledPlayer);
 		panel.add(labeledLetChat);
+		panel.add(betMoney);
+		panel.add(butBet);
 		panel.add(chat);
 		panel.add(labelWait[0]);
 		panel.add(labelWait[1]);
