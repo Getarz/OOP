@@ -287,7 +287,7 @@ public class ServClientData extends Thread {
 									}else if (hum==7) {
 										audioWin.Lost_tungjai();
 									}
-								}
+								} 
 								///////////// show money ////////////////////////
 								for (int j = 0; j < server.money.length-1; j++) {
 									server.labelMoney[i].setText("Money : " + server.money[j]);

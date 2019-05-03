@@ -137,10 +137,10 @@ public class IngameFrame extends JFrame{
 			money[i]=5000;
 		}
 		money[3]=100000;
-		labelMoney[0] = new JLabel("Money : "+money[0]);
-		labelMoney[1] = new JLabel("Money : "+money[1]);
-		labelMoney[2] = new JLabel("Money : "+money[2]);
-		labelMoney[3] = new JLabel("Money : "+money[3]);
+		labelMoney[0] = new JLabel("Money : "+5000);
+		labelMoney[1] = new JLabel("Money : "+5000);
+		labelMoney[2] = new JLabel("Money : "+5000);
+		labelMoney[3] = new JLabel("Money : "+5000);
 		labelMoney[0].setSize(200,60);
 		for (int i = 0; i < money.length; i++) {
 			labelMoney[i].setSize(200,60);
